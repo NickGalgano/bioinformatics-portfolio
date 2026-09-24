@@ -1,6 +1,6 @@
 # Bioinformatics Portfolio
 
-**Name:** Your Name  
+**Name:** Nicolas Galgano 
 **Course:** BIOL 2406 — Introduction to Bioinformatics  
 **Semester:** Spring 2026  
 
