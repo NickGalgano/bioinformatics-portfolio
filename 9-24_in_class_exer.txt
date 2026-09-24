@@ -1,0 +1,191 @@
+Last login: Mon Sep 21 16:43:46 on ttys000
+(base) galganon@Nicolass-MacBook-Pro ~ % ssh galgano.n@login.explorer.northeastern.edu
+galgano.n@login.explorer.northeastern.edu's password: 
+Last login: Mon Sep 21 12:43:57 2026 from 10.110.198.64
+    _______  __ ____  __    ____  ____  __________
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|
+
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+
+The Research Computing team is thrilled to share that a new, state-of-the-art HPC cluster is coming soon to the Northeastern research computing community. All Northeastern faculty and PIs are eligible to submit a proposal, especially those who already use GPUs on the Explorer and Discovery HPC clusters.                                                                                                                                                                   
+If you are a student or researcher who is a current Explorer HPC cluster user, we highly encourage you to reach out to your account sponsor (faculty or PI) to make a submission.
+
+The application process is here: https://forms.gle/eTPsdQZN25efoJ3g6
+If you have questions or feedback, please email d.tiwari@northeastern.edu.
+
+[galgano.n@explorer-02 ~]$ Connection to login.explorer.northeastern.edu closed by remote host.
+Connection to login.explorer.northeastern.edu closed.
+client_loop: send disconnect: Broken pipe
+(base) galganon@Nicolass-MacBook-Pro ~ % ssh galgano.n@login.explorer.northeastern.edu
+galgano.n@login.explorer.northeastern.edu's password: 
+Last login: Thu Sep 10 13:04:28 2026 from 10.110.9.83
+    _______  __ ____  __    ____  ____  __________ 
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/ 
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|  
+                                                  
++-----------------------------------------------------------+
+| You're now connected to the Explorer cluster. Visit our   |
+| website http://rc.northeastern.edu/support for links to   |
+| our service catalog, documentation, training, and consul- |
+| tations. You can also email us at rchelp@northeastern.edu |
+| to generate a help ticket.                                |
+|                                                           |
+| The Research Computing Team                               |
++-----------------------------------------------------------+
+
+The Research Computing team is thrilled to share that a new, state-of-the-art HPC cluster is coming soon to the Northeastern research computing community. All Northeastern faculty and PIs are eligible to submit a proposal, especially those who already use GPUs on the Explorer and Discovery HPC clusters. 
+
+If you are a student or researcher who is a current Explorer HPC cluster user, we highly encourage you to reach out to your account sponsor (faculty or PI) to make a submission.
+
+The application process is here: https://forms.gle/eTPsdQZN25efoJ3g6
+If you have questions or feedback, please email d.tiwari@northeastern.edu.
+
+[galgano.n@explorer-01 ~]$ cd /courses/BIOL2406.202710/
+[galgano.n@explorer-01 BIOL2406.202710]$ ls
+data  misc  shared  staff  students
+[galgano.n@explorer-01 BIOL2406.202710]$ cd misc/
+[galgano.n@explorer-01 misc]$ ls
+grep_exercise.txt  perm_example.txt
+[galgano.n@explorer-01 misc]$ ls -l
+total 2
+-rw-r--r-- 1 jhenzy users                  189 Sep 24 10:07 grep_exercise.txt
+-rw-r--r-- 1 jhenzy BIOL2406.202710-staff 1056 Sep 24 10:22 perm_example.txt
+[galgano.n@explorer-01 misc]$ mv grep_exercise.txt ~
+mv: cannot remove 'grep_exercise.txt': Permission denied
+[galgano.n@explorer-01 misc]$ cp grep_exercise.txt ~
+[galgano.n@explorer-01 misc]$ ls ~
+bioinformatics-portfolio  esc.pub  grep_exercise.txt  ondemand
+[galgano.n@explorer-01 misc]$ mv grep_exercise.txt ~
+mv: cannot remove 'grep_exercise.txt': Permission denied
+[galgano.n@explorer-01 misc]$ ls ~
+bioinformatics-portfolio  esc.pub  grep_exercise.txt  ondemand
+[galgano.n@explorer-01 misc]$ ls -l
+total 2
+-rw-r--r-- 1 jhenzy users                  189 Sep 24 10:07 grep_exercise.txt
+-rw-rw-r-- 1 jhenzy BIOL2406.202710-staff 1056 Sep 24 10:22 perm_example.txt
+[galgano.n@explorer-01 misc]$ cd ..
+[galgano.n@explorer-01 BIOL2406.202710]$ cd students/galgano.n/
+[galgano.n@explorer-01 galgano.n]$ ls
+fastq_files  in_class_work  seq_files
+[galgano.n@explorer-01 galgano.n]$ cd in_class_work/
+[galgano.n@explorer-01 in_class_work]$ ls -l
+total 7
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff 3914 Sep 14 13:12 01_in_class_exer.txt
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:17 2_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff   33 Sep 21 13:17 error_10490560.txt
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:02 NG_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  383 Sep 21 13:16 NG_batch_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  198 Sep 21 12:45 NG_DNA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  309 Sep 21 13:02 NG_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff    0 Sep 21 13:17 output_10490560.txt
+[galgano.n@explorer-01 in_class_work]$ chmod 666 NG_AA_names 
+[galgano.n@explorer-01 in_class_work]$ ls -l
+total 7
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff 3914 Sep 14 13:12 01_in_class_exer.txt
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:17 2_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff   33 Sep 21 13:17 error_10490560.txt
+-rw-rw-rw- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:02 NG_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  383 Sep 21 13:16 NG_batch_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  198 Sep 21 12:45 NG_DNA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  309 Sep 21 13:02 NG_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff    0 Sep 21 13:17 output_10490560.txt
+[galgano.n@explorer-01 in_class_work]$ chmod 664 NG_AA_names
+[galgano.n@explorer-01 in_class_work]$ ls -l
+total 7
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff 3914 Sep 14 13:12 01_in_class_exer.txt
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:17 2_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff   33 Sep 21 13:17 error_10490560.txt
+-rw-rw-r-- 1 galgano.n BIOL2406.202710-staff  108 Sep 21 13:02 NG_AA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  383 Sep 21 13:16 NG_batch_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  198 Sep 21 12:45 NG_DNA_names
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff  309 Sep 21 13:02 NG_trans.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff    0 Sep 21 13:17 output_10490560.txt
+[galgano.n@explorer-01 in_class_work]$ cd
+[galgano.n@explorer-01 ~]$ ls
+bioinformatics-portfolio  esc.pub  grep_exercise.txt  ondemand
+[galgano.n@explorer-01 ~]$ cd bioinformatics-portfolio/
+[galgano.n@explorer-01 bioinformatics-portfolio]$ ls
+README.md
+[galgano.n@explorer-01 bioinformatics-portfolio]$ nano README.md 
+[galgano.n@explorer-01 bioinformatics-portfolio]$ srun --pty bash
+srun: job 10581871 queued and waiting for resources
+srun: job 10581871 has been allocated resources
+[galgano.n@c0631 bioinformatics-portfolio]$ ls
+README.md
+[galgano.n@c0631 bioinformatics-portfolio]$ cd ..
+[galgano.n@c0631 ~]$ ls
+bioinformatics-portfolio  esc.pub  grep_exercise.txt  ondemand
+[galgano.n@c0631 ~]$ cp -r bioinformatics-portfolio/ /courses/BIOL2406.202710/students/galgano.n/
+[galgano.n@c0631 ~]$ cd /courses/BIOL2406.202710/students/galgano.n/
+[galgano.n@c0631 galgano.n]$ ls
+bioinformatics-portfolio  fastq_files  in_class_work  seq_files
+[galgano.n@c0631 galgano.n]$ cd seq_files/
+[galgano.n@c0631 seq_files]$ ls
+[galgano.n@c0631 seq_files]$ cd ..
+[galgano.n@c0631 galgano.n]$ cd fastq_files/
+[galgano.n@c0631 fastq_files]$ ls
+Sea_cuke
+[galgano.n@c0631 fastq_files]$ cp /courses/BIOL2406.202710/misc/grep_exercise.txt /courses/BIOL2406.202710/students/galgano.n/in_class_work/
+[galgano.n@c0631 fastq_files]$ ls
+Sea_cuke
+[galgano.n@c0631 fastq_files]$ cd ../in_class_work/
+[galgano.n@c0631 in_class_work]$ ls
+01_in_class_exer.txt  error_10490560.txt  NG_AA_names        NG_DNA_names  output_10490560.txt
+2_AA_names            grep_exercise.txt   NG_batch_trans.sh  NG_trans.sh
+[galgano.n@c0631 in_class_work]$ grep ">" grep_exercise.txt 
+>seq1_wildtype
+>seq2_mutant
+>seq3_wildtype
+>seq4_control
+[galgano.n@c0631 in_class_work]$ grep -c ">" grep_exercise.txt 
+4
+[galgano.n@c0631 in_class_work]$ grep "GAATTC" grep_exercise.txt 
+ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+ATGCCCGGGAATTCGATCGATCGGGCCATGCA
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[galgano.n@c0631 in_class_work]$ grep "GGATTC" grep_exercise.txt 
+[galgano.n@c0631 in_class_work]$ grep "GGATCC" grep_exercise.txt 
+ATGGCTAGCTAGGGATCCGAATTCGCGCTAGC
+ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[galgano.n@c0631 in_class_work]$ grep -v "GAATTC" grep_exercise.txt 
+>seq1_wildtype
+>seq2_mutant
+ATGGCTAGCTAGGGATCCTAATTCGCGCTAGC
+>seq3_wildtype
+>seq4_control
+[galgano.n@c0631 in_class_work]$ grep "N" grep_exercise.txt 
+NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[galgano.n@c0631 in_class_work]$ grep -n "N" grep_exercise.txt 
+8:NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[galgano.n@c0631 in_class_work]$ grep 'mutant' grep_exercise.txt 
+>seq2_mutant
+[galgano.n@c0631 in_class_work]$ grep -n "wildtype" grep_exercise.txt 
+1:>seq1_wildtype
+5:>seq3_wildtype
+[galgano.n@c0631 in_class_work]$ grep -c "wildtype" grep_exercise.txt 
+2
+[galgano.n@c0631 in_class_work]$ grep -c ">" grep_exercise.txt 
+4
+[galgano.n@c0631 in_class_work]$ grep -n "n" grep_exercise.txt 
+3:>seq2_mutant
+7:>seq4_control
+[galgano.n@c0631 in_class_work]$ grep -n "N" grep_exercise.txt 
+8:NNNATGGCTAGCTAGGATCCGAATTCGCGATG
+[galgano.n@c0631 in_class_work]$ grep -o "G" grep_exercise.txt | wc -l
+38
+[galgano.n@c0631 in_class_work]$ # Done
+[galgano.n@c0631 in_class_work]$ 

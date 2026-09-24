@@ -1,7 +1,7 @@
 # Bioinformatics Portfolio
 
 **Name:** Your Name  
-**Course:** BIOL XXXX — Introduction to Bioinformatics  
+**Course:** BIOL 2406 — Introduction to Bioinformatics  
 **Semester:** Spring 2026  
 
 ## About This Portfolio
