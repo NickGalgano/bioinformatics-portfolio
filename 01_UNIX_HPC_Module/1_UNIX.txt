@@ -1,0 +1,302 @@
+Last login: Wed Sep 23 16:43:11 on ttys000
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 1: ls home directory
+(base) galganon@Nicolass-MacBook-Pro ~ % ls
+DataGripProjects	Downloads		Library			Pictures		Zotero
+Desktop			eclipse			Movies			Public
+Documents		eclipse-workspace	Music			SimUText 2024-2025
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 2: Navigate directories with absolute and relative paths
+(base) galganon@Nicolass-MacBook-Pro ~ % cd Pictures 
+(base) galganon@Nicolass-MacBook-Pro Pictures % cd ../Movies 
+(base) galganon@Nicolass-MacBook-Pro Movies % cd /Users/galganon/Music 
+(base) galganon@Nicolass-MacBook-Pro Music % pwd
+/Users/galganon/Music
+(base) galganon@Nicolass-MacBook-Pro Music % # Task 3: Navigating with cd and ~,/
+(base) galganon@Nicolass-MacBook-Pro Music % cd /
+(base) galganon@Nicolass-MacBook-Pro / % pwd
+/
+(base) galganon@Nicolass-MacBook-Pro / % cd ~
+(base) galganon@Nicolass-MacBook-Pro ~ % pwd
+/Users/galganon
+(base) galganon@Nicolass-MacBook-Pro ~ % cd /
+(base) galganon@Nicolass-MacBook-Pro / % pwd 
+/
+(base) galganon@Nicolass-MacBook-Pro / % cd 
+(base) galganon@Nicolass-MacBook-Pro ~ % pwd
+/Users/galganon
+(base) galganon@Nicolass-MacBook-Pro ~ % cd Movies 
+(base) galganon@Nicolass-MacBook-Pro Movies % # Task 4: Using ls with special options
+(base) galganon@Nicolass-MacBook-Pro Movies % ls -l
+total 0
+drwxr-xr-x@ 14 galganon  staff  448 Jul 14  2025 iMovie Library.imovielibrary
+drwxr-xr-x@  7 galganon  staff  224 Jul 12  2025 iMovie Theater.theater
+drwxr-xr-x   5 galganon  staff  160 Oct  4  2023 TV
+(base) galganon@Nicolass-MacBook-Pro Movies % ls -R
+iMovie Library.imovielibrary	iMovie Theater.theater		TV
+
+./iMovie Library.imovielibrary:
+__Sync__			7-20-23				CurrentVersion.plist		My Movie
+__Temp				CurrentVersion.flexolibrary	Marblehead July 4th Fireworks	Settings.plist
+
+./iMovie Library.imovielibrary/__Temp:
+
+# Deleted lines of similar output
+
+./TV/TV Library.tvlibrary:
+Application.tvdb		Library Preferences.tvdb	Library.tvdb			Preferences.plist
+(base) galganon@Nicolass-MacBook-Pro Movies % ls -l -t -r
+total 0
+drwxr-xr-x   5 galganon  staff  160 Oct  4  2023 TV
+drwxr-xr-x@  7 galganon  staff  224 Jul 12  2025 iMovie Theater.theater
+drwxr-xr-x@ 14 galganon  staff  448 Jul 14  2025 iMovie Library.imovielibrary
+(base) galganon@Nicolass-MacBook-Pro Movies % ls -lh
+total 0
+drwxr-xr-x@ 14 galganon  staff   448B Jul 14  2025 iMovie Library.imovielibrary
+drwxr-xr-x@  7 galganon  staff   224B Jul 12  2025 iMovie Theater.theater
+drwxr-xr-x   5 galganon  staff   160B Oct  4  2023 TV
+(base) galganon@Nicolass-MacBook-Pro Movies % cd ..
+(base) galganon@Nicolass-MacBook-Pro ~ % pwd
+/Users/galganon
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 5: Creating and navigating directories
+(base) galganon@Nicolass-MacBook-Pro ~ % mkdir ctga_unix
+(base) galganon@Nicolass-MacBook-Pro ~ % cd ctga_unix 
+(base) galganon@Nicolass-MacBook-Pro ctga_unix % mkdir test1
+(base) galganon@Nicolass-MacBook-Pro ctga_unix % mkdir test2
+(base) galganon@Nicolass-MacBook-Pro ctga_unix % ls
+test1	test2
+(base) galganon@Nicolass-MacBook-Pro ctga_unix % cd test1
+(base) galganon@Nicolass-MacBook-Pro test1 % pwd
+/Users/galganon/ctga_unix/test1
+(base) galganon@Nicolass-MacBook-Pro test1 % cd ../test2
+(base) galganon@Nicolass-MacBook-Pro test2 % pwd
+/Users/galganon/ctga_unix/test2
+(base) galganon@Nicolass-MacBook-Pro test2 % cd /Users/galganon/ctga_unix/test1
+(base) galganon@Nicolass-MacBook-Pro test1 % pwd
+/Users/galganon/ctga_unix/test1
+(base) galganon@Nicolass-MacBook-Pro test1 % cd   
+(base) galganon@Nicolass-MacBook-Pro ~ %  cd Downloads 
+(base) galganon@Nicolass-MacBook-Pro Downloads % # Task 6: Navigate to downloads and remove unwanted file
+(base) galganon@Nicolass-MacBook-Pro Downloads % rm -r howto_binomial.html 
+(base) galganon@Nicolass-MacBook-Pro Downloads % cd 
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 7: Create unix directory
+(base) galganon@Nicolass-MacBook-Pro ~ % cd /Users/galganon/Desktop 
+(base) galganon@Nicolass-MacBook-Pro Desktop % mkdir unix
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd unix 
+(base) galganon@Nicolass-MacBook-Pro unix % touch heaven.txt
+(base) galganon@Nicolass-MacBook-Pro unix % touch earth.txt
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+earth.txt	heaven.txt
+(base) galganon@Nicolass-MacBook-Pro unix % mkdir Temp 
+(base) galganon@Nicolass-MacBook-Pro unix % mv heaven.txt Temp/ 
+(base) galganon@Nicolass-MacBook-Pro unix % mv earth.txt Temp/
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+Temp
+(base) galganon@Nicolass-MacBook-Pro unix % ls Temp/
+earth.txt	heaven.txt
+(base) galganon@Nicolass-MacBook-Pro unix % # Task 8: create 3 files in Temp
+(base) galganon@Nicolass-MacBook-Pro unix % cd Temp 
+(base) galganon@Nicolass-MacBook-Pro Temp % touch fat fit feet
+(base) galganon@Nicolass-MacBook-Pro Temp % ls f?t
+fat	fit
+(base) galganon@Nicolass-MacBook-Pro Temp % ls f??t
+feet
+(base) galganon@Nicolass-MacBook-Pro Temp % cd ..
+(base) galganon@Nicolass-MacBook-Pro unix % touch rags
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+rags	Temp
+(base) galganon@Nicolass-MacBook-Pro unix % mv rags Temp/riches
+(base) galganon@Nicolass-MacBook-Pro unix % ls Temp/
+earth.txt	feet		heaven.txt
+fat		fit		riches
+(base) galganon@Nicolass-MacBook-Pro unix % mv Temp/riches Temp/rags
+(base) galganon@Nicolass-MacBook-Pro unix % ls Temp/                
+earth.txt	feet		heaven.txt
+fat		fit		rags
+(base) galganon@Nicolass-MacBook-Pro unix % mkdir Temp2
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+Temp	Temp2
+(base) galganon@Nicolass-MacBook-Pro unix % mv Temp2 Temp/
+(base) galganon@Nicolass-MacBook-Pro unix % ls Temp/
+earth.txt	feet		heaven.txt	Temp2
+fat		fit		rags
+(base) galganon@Nicolass-MacBook-Pro unix % # Task 9: Create temp3 and move it while in home directory
+(base) galganon@Nicolass-MacBook-Pro unix % mkdir Temp3
+(base) galganon@Nicolass-MacBook-Pro unix % cd ~
+(base) galganon@Nicolass-MacBook-Pro ~ % mv Desktop/unix/Temp3 Desktop/unix/Temp
+(base) galganon@Nicolass-MacBook-Pro ~ % ls Desktop/unix/Temp 
+earth.txt	feet		heaven.txt	Temp2
+fat		fit		rags		Temp3
+(base) galganon@Nicolass-MacBook-Pro ~ % cd ~
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 10: ls vs ls /
+(base) galganon@Nicolass-MacBook-Pro ~ % ls Desktop 
+9:26 unofficial transcript.pdf
+At_genes.gff.gz
+Biostats lab
+Bloons TD 6.app
+# Removed extra output
+unix
+(base) galganon@Nicolass-MacBook-Pro ~ % ls Desktop 
+9:26 unofficial transcript.pdf
+At_genes.gff.gz
+Biostats lab
+Bloons TD 6.app
+# Removed extra output
+unix
+(base) galganon@Nicolass-MacBook-Pro ~ % cd Desktop
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd unix
+(base) galganon@Nicolass-MacBook-Pro unix % pwd
+/Users/galganon/Desktop/unix
+(base) galganon@Nicolass-MacBook-Pro unix % touch dog.txt cat.txt  owl.fa
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+cat.txt	dog.txt	owl.fa	Temp
+(base) galganon@Nicolass-MacBook-Pro unix % rm -i dog.txt
+remove dog.txt? y
+(base) galganon@Nicolass-MacBook-Pro unix % rm -i cat.txt
+remove cat.txt? y
+(base) galganon@Nicolass-MacBook-Pro unix % # Task 11: Remove file from unix and custome file
+(base) galganon@Nicolass-MacBook-Pro unix % rm -i owl.fa
+remove owl.fa? y
+(base) galganon@Nicolass-MacBook-Pro unix % cd ..
+(base) galganon@Nicolass-MacBook-Pro Desktop % rm -i dummy 
+remove dummy? y
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd unix 
+(base) galganon@Nicolass-MacBook-Pro unix % mkdir Storage
+(base) galganon@Nicolass-MacBook-Pro unix % mv file* Storage/
+(base) galganon@Nicolass-MacBook-Pro unix % ls
+Storage
+(base) galganon@Nicolass-MacBook-Pro unix % cp -R Storage Storage2
+(base) galganon@Nicolass-MacBook-Pro unix % ls Storage Storage2
+Storage:
+file1	file2	file3
+
+Storage2:
+file1	file2	file3
+(base) galganon@Nicolass-MacBook-Pro unix % # Task 12: cp directory without -R and delete directory
+(base) galganon@Nicolass-MacBook-Pro unix % cp  Storage Storage2 
+cp: Storage is a directory (not copied).
+(base) galganon@Nicolass-MacBook-Pro unix % cd ..
+(base) galganon@Nicolass-MacBook-Pro Desktop % rm -ri unix 
+examine files in directory unix? y
+examine files in directory unix/Storage2? y
+remove unix/Storage2/file3? y
+remove unix/Storage2/file2? y
+remove unix/Storage2/file1? y
+remove unix/Storage2? y
+remove unix? yy
+(base) galganon@Nicolass-MacBook-Pro Desktop % # Task 13: Make Data directory and mov files 
+(base) galganon@Nicolass-MacBook-Pro Desktop % mkdir Data
+(base) galganon@Nicolass-MacBook-Pro Desktop % mv At_proteins.fasta Data 
+(base) galganon@Nicolass-MacBook-Pro Desktop % ls Data 
+At_proteins.fasta
+(base) galganon@Nicolass-MacBook-Pro Desktop % # Task 14: Creating rm alias
+(base) galganon@Nicolass-MacBook-Pro Desktop % alias rm='rm -i'
+(base) galganon@Nicolass-MacBook-Pro Desktop % rm
+usage: rm [-f | -i] [-dIPRrvWx] file ...
+       unlink [--] file
+# In new window shown here, the alias doesn't stay
+(base) galganon@Nicolass-MacBook-Pro Desktop % ls
+9:26 unofficial transcript.pdf
+At_genes.gff.gz
+Biostats lab
+Bloons TD 6.app
+# Removed some output
+unix
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd ~
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 15: Create source profile and add alias
+(base) galganon@Nicolass-MacBook-Pro ~ % nano profile
+(base) galganon@Nicolass-MacBook-Pro ~ % less profile 
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 16: Alias in new window
+(base) galganon@Nicolass-MacBook-Pro ~ % source profile 
+(base) galganon@Nicolass-MacBook-Pro ~ % cd Desktop
+(base) galganon@Nicolass-MacBook-Pro Desktop % ls
+Downloads/		file2			Music/			SimUText 
+# Removed some output
+file3
+(base) galganon@Nicolass-MacBook-Pro Desktop % rm file3
+remove file3? y
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd
+(base) galganon@Nicolass-MacBook-Pro ~ % ls .
+Downloads/		file2			Music/			SimUText 
+# Removed some output
+.docker/		.qtiplot/		.zsh_sessions/		file3
+(base) galganon@Nicolass-MacBook-Pro ~ % rm file3
+remove file3? y
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 17: ls hidden files
+(base) galganon@Nicolass-MacBook-Pro ~ % ls -a
+.			.local			.zsh_sessions
+..			.m2			.zshrc
+.android		.mono			DataGripProjects
+# Removed extra output
+.eclipse		.vscode			profile
+.gitconfig		.xonshrc		Public
+.homebridge		.zprofile		SimUText 2024-2025
+.lesshst		.zsh_history		Zotero
+(base) galganon@Nicolass-MacBook-Pro ~ % less .zprofile 
+(base) galganon@Nicolass-MacBook-Pro ~ % less profile
+(base) galganon@Nicolass-MacBook-Pro ~ % # Task 18: ls and profile in a new window
+(base) galganon@Nicolass-MacBook-Pro ~ % ls
+DataGripProjects	eclipse-workspace	profile
+Desktop			Library			Public
+Documents		Movies			SimUText 2024-2025
+Downloads		Music			Zotero
+eclipse			Pictures
+(base) galganon@Nicolass-MacBook-Pro ~ % source profile 
+(base) galganon@Nicolass-MacBook-Pro ~ % ls
+DataGripProjects/	eclipse-workspace/	profile
+Desktop/		Library/		Public/
+Documents/		Movies/			SimUText 2024-2025/
+Downloads/		Music/			Zotero/
+eclipse/		Pictures/
+(base) galganon@Nicolass-MacBook-Pro ~ % cd Desktop
+(base) galganon@Nicolass-MacBook-Pro Desktop % # Task 19: Make new directory and sh file
+(base) galganon@Nicolass-MacBook-Pro Desktop % mkdir Code
+(base) galganon@Nicolass-MacBook-Pro Desktop % cd Code 
+(base) galganon@Nicolass-MacBook-Pro Code % nano hello.sh
+(base) galganon@Nicolass-MacBook-Pro Code % # Task 20: try running with bash
+(base) galganon@Nicolass-MacBook-Pro Code % bash hello.sh
+Hello World
+(base) galganon@Nicolass-MacBook-Pro Code % ls -l
+total 8
+-rw-r--r--  1 galganon  staff  50 Sep 23 18:07 hello.sh
+(base) galganon@Nicolass-MacBook-Pro Code % chmod u+x hello.sh
+(base) galganon@Nicolass-MacBook-Pro Code % ls -l
+total 8
+-rwxr--r--  1 galganon  staff  50 Sep 23 18:07 hello.sh
+(base) galganon@Nicolass-MacBook-Pro Code % bash hello.sh
+Hello World
+(base) galganon@Nicolass-MacBook-Pro Code % # Task 21: execute with ./
+(base) galganon@Nicolass-MacBook-Pro Code % ./hello.sh
+Hello World
+(base) galganon@Nicolass-MacBook-Pro Desktop % # Task 22: Create cleanup.sh file
+(base) galganon@Nicolass-MacBook-Pro Desktop % nano cleanup.sh
+(base) galganon@Nicolass-MacBook-Pro Desktop % # Task 23: Before and After cleanup.sh file is ran
+(base) galganon@Nicolass-MacBook-Pro Desktop % chmod u+x cleanup.sh
+(base) galganon@Nicolass-MacBook-Pro Desktop % ls
+9:26 unofficial transcript.pdf
+CGTA/
+cleanup.sh
+Code/
+Data/
+GC2027_002277881_GalganoNicolas.pdf
+GradesUpToFall2025.pdf
+My Audit - Audit Results Tab.pdf
+NG_CS-Bio_Resume.pdf
+Old Resume Versions/
+Pdfs/
+Screenshot 2026-09-15 at 3.29.05 PM.png
+Screenshot 2026-09-15 at 3.29.20 PM.png
+Screenshot 2026-09-15 at 3.29.28 PM.png
+Screenshots/
+Tax Document.pdf
+# Some output removed
+(base) galganon@Nicolass-MacBook-Pro Desktop % ./cleanup.sh     
+(base) galganon@Nicolass-MacBook-Pro Desktop % ls
+At_genes.gff.gz			Maybe Important/
+Biostats lab/			OLD CS/
+Bloons TD 6.app/		Old Resume Versions/
+Pdfs/				Screenshots/
+cleanup.sh			Code/				
+Data/				
+# Some output removed
+(base) galganon@Nicolass-MacBook-Pro Desktop % # End of 1_UNIX
+
+
