@@ -25,12 +25,18 @@ This directory contains all files relevant to the completion of the unix module,
 including files containg data used in the tutorials and txt files of each terminal session.
 
 Full paths for each tutorial:
+
 1_UNIX:
-*/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/1_UNIX.txt*
+
+**/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/1_UNIX.txt**
+
 2_UNIX:
-*/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/2_UNIX.txt*
+
+**/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/2_UNIX.txt**
+
 3_UNIX:
-*/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/3_UNIX.txt*
+
+**/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/3_UNIX.txt**
 
 Other folders contain sequencing data that was necessary for the tutorials. 
 
