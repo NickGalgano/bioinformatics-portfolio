@@ -1,0 +1,304 @@
+(base) galganon@Nicolass-MacBook-Pro ~ % ls /usr/bin/*.sh
+/usr/bin/power_report.sh
+(base) galganon@Nicolass-MacBook-Pro ~ % # Exercise 1: Using ls to look for specific files
+(base) galganon@Nicolass-MacBook-Pro ~ % ls /usr/bin/c*
+/usr/bin/c++			/usr/bin/chsh			/usr/bin/
+# Deleted extra output
+/usr/bin/chpass			/usr/bin/compress		/usr/bin/crontab
+(base) galganon@Nicolass-MacBook-Pro ~ % ls /usr/bin/*a*
+/usr/bin/aa				/usr/bin/install			/usr/bin/
+# Deleted extra output
+/usr/bin/infotocap			/usr/bin/ptargrep5.34			/usr/bin/zipdetails5.34
+(base) galganon@Nicolass-MacBook-Pro ~ % ls /usr/bin/*c 
+/usr/bin/bc			/usr/bin/gcc			/usr/bin/
+# Deleted extra output
+sampleproc		/usr/bin/yacc
+/usr/bin/gatherheaderdoc	/usr/bin/mib2c			/usr/bin/sandbox-exec
+(base) galganon@Nicolass-MacBook-Pro ~ % ls /usr/bin/*[ac]*
+/usr/bin/aa				/usr/bin/git-upload-pack		/usr/bin/productbu
+# Deleted extra output
+/usr/bin/git-receive-pack		/usr/bin/priclass.d
+/usr/bin/git-upload-archive		/usr/bin/procsystime
+
+(base) galganon@Nicolass-MacBook-Pro ~ % 
+
+# Signed onto cluster and requested compute node
+
+[galgano.n@c0595 galgano.n]$ cd /courses/
+[galgano.n@c0595 galgano.n]$ # Exercise 2: print file from top level, last line = C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$
+[galgano.n@c0595 courses]$ cat /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/untrimmed_fastq/SRR097977.fastq 
+@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT
++SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+CCCCCCCCCCCCCCC>CCCCC7CCCCCCACA?5A5<
+# Deleted extra output
+@SRR097977.249 209DTAAXX_Lenski2_1_7:8:3:441:292 length=36
+GGGTAGGTATTACTCAGGACGAGGCGGTCGTGCCAC
++SRR097977.249 209DTAAXX_Lenski2_1_7:8:3:441:292 length=36
+C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$
+[galgano.n@c0595 courses]$ cd BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/untrimmed_fastq/
+[galgano.n@c0595 untrimmed_fastq]$ less SRR097977.fastq 
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 3: Answer = CAC
+[galgano.n@c0595 untrimmed_fastq]$ head SRR097977.fastq 
+@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT
++SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+CCCCCCCCCCCCCCC>CCCCC7CCCCCCACA?5A5<
+@SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+GGTTACTCTTTTAACCTTGATGTTTCGACGCTGTAT
++SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36
+CC:?:CC:?CCCCC??C?:?C-&:C:,?<&*?+7?<
+@SRR097977.3 209DTAAXX_Lenski2_1_7:8:3:663:569 length=36
+TTGTTCGCTTTTGGTAATTAATCCCGGAAATAATAA
+[galgano.n@c0595 untrimmed_fastq]$ tail SRR097977.fastq 
++SRR097977.247 209DTAAXX_Lenski2_1_7:8:3:548:111 length=36
+CCCCCC?CCCCC.C5.5<C1CCC?<C??&?A?&&?A
+@SRR097977.248 209DTAAXX_Lenski2_1_7:8:3:410:77 length=36
+TTCGACGTTTGGTGGGACTAAGAAAGCATACGGGCG
++SRR097977.248 209DTAAXX_Lenski2_1_7:8:3:410:77 length=36
+CCA?AA?AAA<3A<&:7AA8A::?A*A=>8<*)8<-
+@SRR097977.249 209DTAAXX_Lenski2_1_7:8:3:441:292 length=36
+GGGTAGGTATTACTCAGGACGAGGCGGTCGTGCCAC
++SRR097977.249 209DTAAXX_Lenski2_1_7:8:3:441:292 length=36
+C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$
+[galgano.n@c0595 untrimmed_fastq]$ head SRR098026.fastq 
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
++SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
+@SRR098026.2 HWUSI-EAS1599_1:2:1:0:312 length=35
+NNNNNNNNNNNNNNNNANNNNNNNNNNNNNNNNNN
++SRR098026.2 HWUSI-EAS1599_1:2:1:0:312 length=35
+!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
+@SRR098026.3 HWUSI-EAS1599_1:2:1:0:570 length=35
+NNNNNNNNNNNNNNNNANNNNNNNNNNNNNNNNNN
+[galgano.n@c0595 untrimmed_fastq]$ tail SRR098026.fastq 
++SRR098026.247 HWUSI-EAS1599_1:2:1:2:1311 length=35
+#!##!#################!!!!!!!######
+@SRR098026.248 HWUSI-EAS1599_1:2:1:2:118 length=35
+GNTGNGGTCATCATACGCGCCCNNNNNNNGGCATG
++SRR098026.248 HWUSI-EAS1599_1:2:1:2:118 length=35
+B!;?!A=5922:##########!!!!!!!######
+@SRR098026.249 HWUSI-EAS1599_1:2:1:2:1057 length=35
+CNCTNTATGCGTACGGCAGTGANNNNNNNGGAGAT
++SRR098026.249 HWUSI-EAS1599_1:2:1:2:1057 length=35
+A!@B!BBB@ABAB#########!!!!!!!######
+[galgano.n@c0595 untrimmed_fastq]$ head -n 1 SRR098
+head: cannot open 'SRR098' for reading: No such file or directory
+[galgano.n@c0595 untrimmed_fastq]$ head -n 1 SRR098026.fastq 
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+[galgano.n@c0595 untrimmed_fastq]$ tail -n 1 SRR098026.fastq 
+A!@B!BBB@ABAB#########!!!!!!!######
+[galgano.n@c0595 untrimmed_fastq]$ head -n 4 SRR098026.fastq 
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
++SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
+[galgano.n@c0595 untrimmed_fastq]$ cp SRR098026.fastq SRR098026-copy.fastq
+[galgano.n@c0595 untrimmed_fastq]$ ls -F
+SRR097977.fastq*  SRR098026-copy.fastq*  SRR098026.fastq*
+[galgano.n@c0595 untrimmed_fastq]$ mkdir backup
+[galgano.n@c0595 untrimmed_fastq]$ mv SRR098026-copy.fastq backup
+[galgano.n@c0595 untrimmed_fastq]$ ls backup/
+SRR098026-copy.fastq
+[galgano.n@c0595 untrimmed_fastq]$ cd backup/
+[galgano.n@c0595 backup]$ mv SRR098026-copy.fastq SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ ls
+SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ ls -l
+total 43
+-rwxr-xr-x 1 galgano.n BIOL2406.202710-staff 43332 Sep 28 14:27 SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ chmod -w SRR098026-backup.fastq 
+[galgano.n@c0595 backup]$ ls -l
+total 43
+-r-xr-xr-x 1 galgano.n BIOL2406.202710-staff 43332 Sep 28 14:27 SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ chmod u=rwx SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ ls -l
+total 43
+-rwxr-xr-x 1 galgano.n BIOL2406.202710-staff 43332 Sep 28 14:27 SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ chmod -w SRR098026-backup.fastq 
+[galgano.n@c0595 backup]$ rm SRR098026-backup.fastq 
+rm: remove write-protected regular file 'SRR098026-backup.fastq'? n
+[galgano.n@c0595 backup]$ cd ..
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 4: Make backups
+[galgano.n@c0595 untrimmed_fastq]$ rm -r backup/
+rm: remove write-protected regular file 'backup/SRR098026-backup.fastq'? y
+[galgano.n@c0595 untrimmed_fastq]$ ls
+SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ cp SRR097977.fastq SRR097977-backup.fastq
+[galgano.n@c0595 untrimmed_fastq]$ cp SRR098026.fastq SRR098026-backup.fastq
+[galgano.n@c0595 untrimmed_fastq]$ ls
+SRR097977-backup.fastq  SRR097977.fastq  SRR098026-backup.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ mkdir backup
+[galgano.n@c0595 untrimmed_fastq]$ mv *-backup* backup/
+[galgano.n@c0595 untrimmed_fastq]$ ls backup/
+SRR097977-backup.fastq  SRR098026-backup.fastq
+[galgano.n@c0595 untrimmed_fastq]$ cd backup/
+[galgano.n@c0595 backup]$ chmod -w *.fastq
+[galgano.n@c0595 backup]$ ls -l
+total 89
+-r-xr-xr-x 1 galgano.n BIOL2406.202710-staff 47552 Sep 28 14:34 SRR097977-backup.fastq
+-r-xr-xr-x 1 galgano.n BIOL2406.202710-staff 43332 Sep 28 14:35 SRR098026-backup.fastq
+[galgano.n@c0595 backup]$ cd ..
+[galgano.n@c0595 untrimmed_fastq]$ grep NNNNNNNNNN SRR098026.fastq 
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
+# Deleted extra output
+ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
+CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
++SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!
+# Deleted extra output
+@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
++SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+#!!!!!!!!!##########!!!!!!!!!!##!#!
+--
+@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
++SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 5: Using grep
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 GNATNACCACTTCC SRR098026.fastq
+@SRR098026.245 HWUSI-EAS1599_1:2:1:2:801 length=35
+GNATNACCACTTCCAGTGCTGANNNNNNNGGGATG
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 AAGTT *.fastq
+SRR097977.fastq-@SRR097977.11 209DTAAXX_Lenski2_1_7:8:3:247:351 length=36
+SRR097977.fastq:GATTGCTTTAATGAAAAAGTCATATAAGTTGCCATG
+--
+SRR097977.fastq-@SRR097977.67 209DTAAXX_Lenski2_1_7:8:3:544:566 length=36
+# Delted output
+SRR097977.fastq:TTCTTACCATCCTGAAGTTTTTTCATCTTCCCTGAT
+--
+SRR098026.fastq-@SRR098026.158 HWUSI-EAS1599_1:2:1:1:1505 length=35
+SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ wc bad_reads.txt 
+  537  1073 23217 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ wc -l bad_reads.txt 
+537 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 6: Count sequences
+[galgano.n@c0595 untrimmed_fastq]$ wc -l SRR098026.fastq
+996 SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ # 996 lines / 4 = 249 Sequences
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ wc -l bad_reads.txt 
+537 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ wc -l bad_reads.txt 
+0 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ wc -l bad_reads.txt 
+537 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ wc -l bad_reads.txt 
+537 bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | less
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l 
+537
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+[galgano.n@c0595 untrimmed_fastq]$ tail bad_reads.txt 
+#!!!!!!!!!##########!!!!!!!!!!##!#!
+@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
++SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+#!!!!!!!!!##########!!!!!!!!!!##!#!
+--
+@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
++SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[galgano.n@c0595 untrimmed_fastq]$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | grep -v '^--' > bad_reads.fastq
+[galgano.n@c0595 untrimmed_fastq]$ tail bad_reads.fastq 
++SRR098026.132 HWUSI-EAS1599_1:2:1:0:320 length=35
+#!!!!!!!!!##########!!!!!!!!!!##!#!
+@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
++SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+#!!!!!!!!!##########!!!!!!!!!!##!#!
+@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
++SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *.fastq
+> do
+> head -n 2 ${filename}
+> done
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
+@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36
+TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT
+@SRR098026.1 HWUSI-EAS1599_1:2:1:0:968 length=35
+NNNNNNNNNNNNNNNNCNNNNNNNNNNNNNNNNNN
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *.fastq
+> do
+> head -n 2 ${filename} >> seq_info.txt
+> done
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads.fastq  bad_reads.txt  seq_info.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ basename SRR097977.fastq .fastq
+SRR097977
+[galgano.n@c0595 untrimmed_fastq]$ basename SRR097977.fastq .fasta
+SRR097977.fastq
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *.fastq
+> do
+> name=$(basename ${filename} .fastq)
+> echo ${name}
+> done
+bad_reads
+SRR097977
+SRR098026
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 7: Print the file prefix for all .txt
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *.txt
+> do
+> name=$(basename ${filename} .txt)
+> echo ${name}
+> done
+bad_reads
+seq_info
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *.txt
+> do
+> name=$(basename ${filename} .txt)
+> mv ${filename}  ${name}_2021.txt
+> done
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads_2021.txt  bad_reads.fastq  seq_info_2021.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 8: undo last for loop
+[galgano.n@c0595 untrimmed_fastq]$ for filename in *_2021.txt
+> do
+> name=$(basename ${filename} _2021.txt)    
+> mv ${filename} ${name}.txt
+> done
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads.fastq  bad_reads.txt  seq_info.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ cd ..
+[galgano.n@c0595 01_UNIX_HPC_Module]$ cd ..
+[galgano.n@c0595 bioinformatics-portfolio]$ # Exercise 9: Add to README
+[galgano.n@c0595 bioinformatics-portfolio]$ nano README.md 
+[galgano.n@c0595 bioinformatics-portfolio]$ cd 01_UNIX_HPC_Module/
+[galgano.n@c0595 01_UNIX_HPC_Module]$ ls
+1_UNIX.txt  Arabidopsis  untrimmed_fastq
+[galgano.n@c0595 01_UNIX_HPC_Module]$ cd untrimmed_fastq/
+[galgano.n@c0595 untrimmed_fastq]$ nano bad-reads-script.sh
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads.fastq  bad-reads-script.sh  bad_reads.txt  seq_info.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ bash bad-reads-script.sh 
+[galgano.n@c0595 untrimmed_fastq]$ ls
+backup  bad_reads.fastq  bad-reads-script.sh  bad_reads.txt  scripted_bad_reads.txt  seq_info.txt  SRR097977.fastq  SRR098026.fastq
+[galgano.n@c0595 untrimmed_fastq]$ less scripted_bad_reads.txt 
+[galgano.n@c0595 untrimmed_fastq]$ # Exercise 10: Add to script
+[galgano.n@c0595 untrimmed_fastq]$ nano bad-reads-script.sh 
+[galgano.n@c0595 untrimmed_fastq]$ bash bad-reads-script.sh 
+Script finished!
+[galgano.n@c0595 untrimmed_fastq]$ ls -l bad-reads-script.sh
+-rw-r--r-- 1 galgano.n BIOL2406.202710-staff 115 Sep 28 17:12 bad-reads-script.sh
+[galgano.n@c0595 untrimmed_fastq]$ chmod +x bad-reads-script.sh
+[galgano.n@c0595 untrimmed_fastq]$ ls -l bad-reads-script.sh
+-rwxr-xr-x 1 galgano.n BIOL2406.202710-staff 115 Sep 28 17:12 bad-reads-script.sh
+[galgano.n@c0595 untrimmed_fastq]$ ./bad-reads-script.sh
+Script finished!
+[galgano.n@c0595 untrimmed_fastq]$ 

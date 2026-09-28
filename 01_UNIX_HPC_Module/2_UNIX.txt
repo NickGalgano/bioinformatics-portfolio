@@ -1,0 +1,125 @@
+(base) galganon@Nicolass-MacBook-Pro ~ % ssh galgano.n@login.explorer.northeastern.edu
+galgano.n@login.explorer.northeastern.edu's password: 
+Last login: Thu Sep 24 18:19:16 2026 from 76.118.236.167
+    _______  __ ____  __    ____  ____  __________ 
+   / ____/ |/ // __ \/ /   / __ \/ __ \/ ____/ __ \
+  / __/  |   // /_/ / /   / / / / /_/ / __/ / /_/ /
+ / /___ /   |/ ____/ /___/ /_/ / _, _/ /___/ _, _/ 
+/_____//_/|_/_/   /_____/\____/_/ |_/_____/_/ |_|  
+                                                  
+[galgano.n@explorer-01 ~]$ srun --pty /bin/bash
+srun: job 10610097 queued and waiting for resources
+srun: job 10610097 has been allocated resources
+[galgano.n@c0616 ~]$ cd /courses/BIOL2406.202710/
+[galgano.n@c0616 BIOL2406.202710]$ ls
+data  misc  shared  staff  students
+[galgano.n@c0616 BIOL2406.202710]$ # Task 1: list files and copy into my own directory
+[galgano.n@c0616 BIOL2406.202710]$ ls data
+At_prot_abr.fasta  Sea_cuke
+[galgano.n@c0616 BIOL2406.202710]$ cd students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/
+[galgano.n@c0616 01_UNIX_HPC_Module]$ wget https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/At_genes.gff.gz
+--2026-09-25 13:31:21--  https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/At_genes.gff.gz
+Connecting to 10.99.0.130:3128... connected.
+# Deleted extra loading stages
+2026-09-25 13:31:22 (43.0 MB/s) - ‘At_genes.gff.gz’ saved [4603058/4603058]
+
+[galgano.n@c0616 01_UNIX_HPC_Module]$ gunzip At_genes.gff.gz 
+[galgano.n@c0616 01_UNIX_HPC_Module]$ mkdir Arabidopsis
+[galgano.n@c0616 01_UNIX_HPC_Module]$ mv At_genes.gff ./Arabidopsis/At_genes.gff
+[galgano.n@c0616 01_UNIX_HPC_Module]$ ls
+1_UNIX.txt  Arabidopsis
+[galgano.n@c0616 01_UNIX_HPC_Module]$ ls Arabidopsis/
+At_genes.gff
+[galgano.n@c0616 01_UNIX_HPC_Module]$ cd Arabidopsis/
+[galgano.n@c0616 Arabidopsis]$ wget https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/chr1.fasta.gz
+# Deleted extra loading stages
+2026-09-25 13:34:14 (71.5 MB/s) - ‘chr1.fasta.gz’ saved [9082861/9082861]
+
+[galgano.n@c0616 Arabidopsis]$ gunzip chr1.fasta.gz 
+[galgano.n@c0616 Arabidopsis]$ wget https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/intron_IME_data.fasta
+--2026-09-25 13:34:39--  https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/intron_IME_data.fasta
+# Deleted extra loading stages
+2026-09-25 13:34:41 (76.9 MB/s) - ‘intron_IME_data.fasta’ saved [11330760/11330760]
+
+[galgano.n@c0616 Arabidopsis]$ wget https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/At_proteins.fasta
+--2026-09-25 13:34:58--  https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/At_proteins.fasta
+# Deleted extra loading stages
+2026-09-25 13:34:59 (94.6 MB/s) - ‘At_proteins.fasta’ saved [17891640/17891640]
+
+[galgano.n@c0616 Arabidopsis]$ wget https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/excel_data.csv
+--2026-09-25 13:35:14--  https://github.com/jamiehenzy/01_UNIX_HPC/raw/refs/heads/main/excel_data.csv
+# Deleted extra loading stages
+2026-09-25 13:35:14 (4.63 MB/s) - ‘excel_data.csv’ saved [118/118]
+
+[galgano.n@c0616 Arabidopsis]$ ls
+At_genes.gff  At_proteins.fasta  chr1.fasta  excel_data.csv  intron_IME_data.fasta
+[galgano.n@c0616 Arabidopsis]$ grep "ATGTGA" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ # Task 2: grep using . and *
+[galgano.n@c0616 Arabidopsis]$ grep "ACGT" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "AC.GT" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "AC*GT" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "AC.*GT" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "AC.*GT" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ # "AC.*GT" will give the most outputs because it is any charcter any amount of times between AC and GT
+[galgano.n@c0616 Arabidopsis]$ grep "A...T" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "AG*T" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ grep "A*C*G*T*" intron_IME_data.fasta | less
+[galgano.n@c0616 Arabidopsis]$ # TASK 3: Using grep and count
+[galgano.n@c0616 Arabidopsis]$ grep -c "ACGT" *.fasta
+At_proteins.fasta:70
+chr1.fasta:50612
+intron_IME_data.fasta:11924
+[galgano.n@c0616 Arabidopsis]$ grep -c "AC.GT" *.fasta
+At_proteins.fasta:47
+chr1.fasta:62327
+intron_IME_data.fasta:17998
+[galgano.n@c0616 Arabidopsis]$ grep -c "AC*GT" *.fasta
+At_proteins.fasta:2600
+chr1.fasta:288454
+intron_IME_data.fasta:103917
+[galgano.n@c0616 Arabidopsis]$ # Task 4: Regular exporessions in less
+[galgano.n@c0616 Arabidopsis]$ less chr1.fasta 
+[galgano.n@c0616 Arabidopsis]$ head -n 2 chr1.fasta
+>Chr1 dumped from ADB: Mar/14/08 12:28; last updated: 2007-12-20
+CCCTAAACCCTAAACCCTAAACCCTAAACCTCTGAATCCTTAATCCCTAAATCCCTAAATCTTTAAATCCTACATCCAT
+[galgano.n@c0616 Arabidopsis]$ # Task 5: Change entire sequence to lower case and create new file
+[galgano.n@c0616 Arabidopsis]$ tr 'A-Z' 'a-z' < chr1.fasta >  smallcase_chr1.fasta
+[galgano.n@c0616 Arabidopsis]$ head smallcase_chr1.fasta 
+>chr1 dumped from adb: mar/14/08 12:28; last updated: 2007-12-20
+ccctaaaccctaaaccctaaaccctaaacctctgaatccttaatccctaaatccctaaatctttaaatcctacatccat
+gaatccctaaatacctaattccctaaacccgaaaccggtttctctggttgaaaatcattgtgtatataatgataatttt
+atcgtttttatgtaattgcttattgttgtgtgtagattttttaaaaatatcatttgaggtcaatacaaatcctatttct
+tgtggttttctttccttcacttagctatggatggtttatcttcatttgttatattggatacaagctttgctacgatcta
+catttgggaatgtgagtctcttattgtaaccttagggttggtttatctcaagaatcttattaattgtttggactgttta
+tgtttggacatttattgtcattcttactcctttgtggaaatgtttgttctatcaatttatcttttgtgggaaaattatt
+tagttgtagggatgaagtctttcttcgttgttgttacgcttgtcatctcatctctcaatgatatgggatggtcctttag
+catttattctgaagttcttctgcttgatgattttatccttagccaaaaggattggtggtttgaagacacatcatatcaa
+aaaagctatcgcctcgacgatgctctatttctatccttgtagcacacattttggcactcaaaaaagtatttttagatgt
+[galgano.n@c0616 Arabidopsis]$ # Task 6: sed command to change file name
+[galgano.n@c0616 Arabidopsis]$ ls | sed 's/chr1.fasta/chromo1.fasta/'
+At_genes.gff
+At_proteins.fasta
+chromo1.fasta
+excel_data.csv
+intron_IME_data.fasta
+smallcase_chromo1.fasta
+[galgano.n@c0616 Arabidopsis]$ # Task 7: Subset At_genes to last 500 lines
+[galgano.n@c0616 Arabidopsis]$ tail -n 500 At_genes.gff > At_genes_tail.gff
+[galgano.n@c0616 Arabidopsis]$ # Task 8: cut command
+[galgano.n@c0616 Arabidopsis]$ cut -f 2,9 At_genes_subset.gff | head
+TAIR8	ID=Chr1;Name=Chr1
+TAIR8	ID=AT1G01010;Note=protein_coding_gene;Name=AT1G01010
+# Deleted some output
+TAIR8	Parent=AT1G01010.1
+[galgano.n@c0616 Arabidopsis]$ less excel_data.csv 
+[galgano.n@c0616 Arabidopsis]$ # Task 9: Explaining the 7 components of the command
+# 1: tr '\n' '@' < intron_IME_data.fasta | This transliterates and changes all \n or new lines to an @ symbol from the intro_IME_data.fasta file then pipes to the next command ...
+# 2: sed 's/>/#>/g' | This substitues all ">" to "#>" from the last operation and pipes it too ...
+# 3: tr '#' '\n' | Which switches all the # to "\n", new lines, and pipes it too ...
+# 4: grep "i1_.*5UTR" | which finds all references of the regular expression "i1_.*5UTR" which means any line that contains i1_ then any number of characters and contain 5UTR, and pipes them to ...
+# 5: sort -nk 3 -t "_" | which sorts them numerically accoring to the the 3rd row, and -t "_" specifies the field are seperated by a "_", it then pipes it too ... 
+# 6: head -n 5 | which only takes the first 5 lines and pipes too ...
+# 7: tr '@' '\n' that switches all @ back to new lines or "\n"
+
+
+
