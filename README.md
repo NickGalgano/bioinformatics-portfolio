@@ -40,9 +40,9 @@ Full paths for each tutorial:
 
 **/courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/01_UNIX_HPC_Module/3_UNIX.txt**
 
-Other folders contain sequencing data that was necessary for the tutorials. 
+Other folders contains relevant exercise material and text files from output of sequencing data that was necessary for the tutorials. 
 
-The txt files are hash commented to show each task, where extra output was deleted, new terminals, and
+The tutorial .txt files are hash commented to show each task, where extra output was deleted, new terminals, and
 other relevant notes to the work. 
  
 
