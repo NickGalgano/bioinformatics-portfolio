@@ -1,0 +1,21 @@
+# All other work was done during in class exercises
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 aligned_output]$ module load fastqc/0.12.1 
+Loading fastqc/0.12.1
+  Loading requirement: OpenJDK/22.0.2 perl/5.40.0
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Human]$ fastqc SRR1039508_1.fastq 
+null
+Started analysis of SRR1039508_1.fastq
+Approx 5% complete for SRR1039508_1.fastq
+# Deleted extra output
+Analysis complete for SRR1039508_1.fastq
+# Most quality checks passed, but sequence duplication levels failed and overrepresented sequences triggered a warning, including a sequence matching the adapter. These results may indicate duplication or adapter contamination but the reads are usable and don't need trimming.
+
+
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Human]$ fastqc SRR1039508_2.fastq 
+null
+Started analysis of SRR1039508_2.fastq
+Approx 5% complete for SRR1039508_2.fastq
+# Deleted extra output
+Analysis complete for SRR1039508_2.fastq
+
+# Overall the report is pretty good, there was one red flag indicating a specific spot of the flow cell that might have produced reads that aren't great, however it is still usable. There is no need to trim adapters as there is no evidence there are any. 

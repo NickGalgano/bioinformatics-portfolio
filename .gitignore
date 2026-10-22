@@ -3,6 +3,23 @@
 # Files listed here will NOT be pushed to GitHub
 # ==============================================
 
+# STAR genome indexes
+**/GenomeDir/
+
+# Common generated alignment and analysis directories
+**/STARtmp/
+**/samtools_tmp/
+
+# Downloaded SRA sequencing archives
+*.sra
+
+# STAR-generated alignment outputs
+02_Explore/Human/aligned_output/
+
+# Generated FASTA indexes
+*.fai
+*.mafs
+
 # -----------------------------------------------
 # Raw sequencing data
 # -----------------------------------------------

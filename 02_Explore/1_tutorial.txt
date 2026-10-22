@@ -1,0 +1,105 @@
+(base) galganon@Nicolass-MacBook-Pro ~ % ssh galgano.n@login.explorer.northeastern.edu
+[galgano.n@c3023 bioinformatics-portfolio]$ cd 02_Explore/
+# Downloading data from NCBI
+[galgano.n@c3023 02_Explore]$ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/008/685/GCF_000008685.2_ASM868v2/GCF_000008685.2_ASM868v2_cds_from_genomic.fna.gz
+--2026-10-01 12:28:40--  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/008/685/GCF_000008685.2_ASM868v2/GCF_000008685.2_ASM868v2_cds_from_genomic.fna.gz
+Connecting to 10.99.0.130:3128... connected.
+## Removed extra text
+2026-10-01 12:28:40 (21.4 MB/s) - ‘GCF_000008685.2_ASM868v2_cds_from_genomic.fna.gz’ saved [447402/447402]
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna.gz
+[galgano.n@c3023 02_Explore]$ gunzip GCF_000008685.2_ASM868v2_cds_from_genomic.fna.gz 
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna
+[galgano.n@c3023 02_Explore]$ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/GCF_000002985.6_WBcel235_cds_from_genomic.fna.gz
+--2026-10-01 12:32:53--  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/985/GCF_000002985.6_WBcel235/GCF_000002985.6_WBcel235_cds_from_genomic.fna.gz
+Connecting to 10.99.0.130:3128... connected.
+## Removed extra text
+2026-10-01 12:32:54 (43.9 MB/s) - ‘GCF_000002985.6_WBcel235_cds_from_genomic.fna.gz’ saved [11646223/11646223]
+[galgano.n@c3023 02_Explore]$ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/840/245/GCF_000840245.1_ViralProj14204/GCF_000840245.1_ViralProj14204_cds_from_genomic.fna.gz
+--2026-10-01 12:34:14--  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/840/245/GCF_000840245.1_ViralProj14204/GCF_000840245.1_ViralProj14204_cds_from_genomic.fna.gz
+Connecting to 10.99.0.130:3128... connected.
+## Removed extra text
+2026-10-01 12:34:14 (125 MB/s) - ‘GCF_000840245.1_ViralProj14204_cds_from_genomic.fna.gz’ saved [17675/17675]
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000002985.6_WBcel235_cds_from_genomic.fna.gz
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna.gz
+[galgano.n@c3023 02_Explore]$ gunzip *.gz
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000002985.6_WBcel235_cds_from_genomic.fna
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna
+[galgano.n@c3023 02_Explore]$ cp -r ../../../../data/Sea_cuke .
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000002985.6_WBcel235_cds_from_genomic.fna
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna
+Sea_cuke
+# Document reference genomes
+[galgano.n@c3023 02_Explore]$ nano Genomes_info.txt
+[galgano.n@c3023 02_Explore]$ wget https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz
+--2026-10-01 13:03:17--  https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz
+Connecting to 10.99.0.130:3128... connected.
+# Removed extra text
+Homo_sapiens.GRCh38.dna 100%[==============================>] 898.82M  1.42MB/s    in 5m 5s   
+2026-10-01 13:08:23 (2.94 MB/s) - ‘Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz’ saved
+[galgano.n@c3023 02_Explore]$ ls
+GCF_000002985.6_WBcel235_cds_from_genomic.fna
+GCF_000008685.2_ASM868v2_cds_from_genomic.fna
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna
+Genomes_info.txt
+Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz
+Sea_cuke
+[galgano.n@c3023 02_Explore]$ gunzip Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.gz 
+[galgano.n@c3023 02_Explore]$ nano Genomes_info.txt 
+# Exploring the sequences: loading modules
+[galgano.n@c0595 ~]$ module load anaconda3/
+[galgano.n@c0595 ~]$ module list
+Currently Loaded Modulefiles:
+ 1) explorer/1.0   2) anaconda3/2024.06  
+[galgano.n@c0595 ~]$ source activate /courses/BIOL2406.202710/shared/emboss_env
+
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 ~]$ cd /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 02_Explore]$ ls
+Borellia  C.elegans  Genomes_info.txt  Human  Lambda  Sea_cuke
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 02_Explore]$ C.elegans/
+bash: C.elegans/: Is a directory
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 02_Explore]$ cd C.elegans/
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ ls
+GCF_000002985.6_WBcel235_genomic.fna
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ infoseq GCF_000002985.6_WBcel235_genomic.fna 
+Display basic information about sequences
+USA                      Database  Name           Accession      Type Length %GC    Organism            Description 
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003279.8 -              NC_003279.8    -              N    15072434 35.75                      Caenorhabditis elegans chromosome I
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003280.10 -              NC_003280.10   -              N    15279421 36.20                      Caenorhabditis elegans chromosome II
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003281.10 -              NC_003281.10   -              N    13783801 35.66                      Caenorhabditis elegans chromosome III
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003282.8 -              NC_003282.8    -              N    17493829 34.59                      Caenorhabditis elegans chromosome IV
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003283.11 -              NC_003283.11   -              N    20924180 35.43                      Caenorhabditis elegans chromosome V
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_003284.9 -              NC_003284.9    -              N    17718942 35.20                      Caenorhabditis elegans chromosome X
+fasta::GCF_000002985.6_WBcel235_genomic.fna:NC_001328.1 -              NC_001328.1    -              N    13794  23.78                      Caenorhabditis elegans mitochondrion, complete genome
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ # How many sequence files are in the worm genome
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ # ANS: 7
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ # Which sequence in the worm genome has the lowest GC%?
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ # ANS: Chromosome x
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 C.elegans]$ cd ../Borellia/
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ ls
+GCF_000008685.2_ASM868v2_genomic.fna
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ infoseq GCF_000008685.2_ASM868v2_genomic.fna 
+Display basic information about sequences
+USA                      Database  Name           Accession      Type Length %GC    Organism            Description 
+fasta::GCF_000008685.2_ASM868v2_genomic.fna:NC_001318.1 -              NC_001318.1    -              N    910724 28.60                      Borreliella burgdorferi B31, complete sequence
+fasta::GCF_000008685.2_ASM868v2_genomic.fna:NC_000957.1 -              NC_000957.1    -              N    5228   23.82                      Borreliella burgdorferi B31 plasmid lp5, complete sequence
+# Deleted extta output
+fasta::GCF_000008685.2_ASM868v2_genomic.fna:NC_001903.1 -              NC_001903.1    -              N    26498  26.30                      Borreliella burgdorferi B31 plasmid cp26, complete sequence
+fasta::GCF_000008685.2_ASM868v2_genomic.fna:NC_001851.2 -              NC_001851.2    -              N    28155  32.75                      Borreliella burgdorferi B31 plasmid lp28-1, complete sequence
+fasta::GCF_000008685.2_ASM868v2_genomic.fna:NC_000956.1 -              NC_000956.1    -              N    52971  27.29                      Borreliella burgdorferi B31 plasmid lp56, complete sequence
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ infoseq GCF_000008685.2_ASM868v2_genomic.fna | wc -l
+Display basic information about sequences
+23
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ #How many sequence files are in the Borrelia genome?
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$  # ANS: 23
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ # Which plasmid in Borrelia has the highest GC%? What is interesting about this plasmid?
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ # ANS: plasmid lp28-1
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@c0595 Borellia]$ # That plasmid is associated with causing Lyme Disease
+

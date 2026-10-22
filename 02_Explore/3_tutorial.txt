@@ -1,0 +1,316 @@
+[galgano.n@explorer-01 galgano.n]$ srun --pty bash
+srun: job 11286563 queued and waiting for resources
+srun: job 11286563 has been allocated resources
+[galgano.n@d0110 galgano.n]$ cd /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Sea_cuke/
+[galgano.n@d0110 Sea_cuke]$ ls
+for_bash_1.sh                SRR6805880.tiny_fastqc.zip      SRR6805881.trimmed.fastq  SRR6805884.trimmed.fastq
+for_bash_2.sh                SRR6805880.trim.fastq           SRR6805882.tiny.fastq     SRR6805885.tiny.fastq
+for_bash_3.sh                SRR6805880.trimmed.fastq        SRR6805882.trimmed.fastq  SRR6805885.trimmed.fastq
+Ppar_tinygenome.fna          SRR6805880.trimmed_fastqc.html  SRR6805883.tiny.fastq     trim_adapters.sh
+SRR6805880.tiny.fastq        SRR6805880.trimmed_fastqc.zip   SRR6805883.trimmed.fastq  Zipped_backups
+SRR6805880.tiny_fastqc.html  SRR6805881.tiny.fastq           SRR6805884.tiny.fastq
+[galgano.n@d0110 Sea_cuke]$ less trim_adapters.sh 
+[galgano.n@d0110 Sea_cuke]$ # All previous work on 3_variants_tutorial was done in class
+[galgano.n@d0110 Sea_cuke]$ # Starting now at Building an index of our genome
+[galgano.n@d0110 Sea_cuke]$ module load anaconda3/
+[galgano.n@d0110 Sea_cuke]$ source activate 
+(base) [galgano.n@d0110 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/emboss_env
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@d0110 Sea_cuke]$ module load bowtie2/2.5.4 
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@d0110 Sea_cuke]$ ls /courses/BIOL2406.202710/shared/
+angsd_env  cutadapt_env  emboss_env  star_env
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@d0110 Sea_cuke]$ ls /courses/BIOL2406.202710/shared/cutadapt_env/
+bin  conda-meta  etc  include  lib  share  ssl  x86_64-conda-linux-gnu
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@d0110 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/cutadapt_env/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ module load samtools/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ module load fastqc/
+Loading fastqc/0.12.1
+  Loading requirement: OpenJDK/22.0.2 perl/5.40.0
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ ls
+for_bash_1.sh                SRR6805880.tiny_fastqc.zip      SRR6805881.trimmed.fastq  SRR6805884.trimmed.fastq
+for_bash_2.sh                SRR6805880.trim.fastq           SRR6805882.tiny.fastq     SRR6805885.tiny.fastq
+for_bash_3.sh                SRR6805880.trimmed.fastq        SRR6805882.trimmed.fastq  SRR6805885.trimmed.fastq
+Ppar_tinygenome.fna          SRR6805880.trimmed_fastqc.html  SRR6805883.tiny.fastq     trim_adapters.sh
+SRR6805880.tiny.fastq        SRR6805880.trimmed_fastqc.zip   SRR6805883.trimmed.fastq  Zipped_backups
+SRR6805880.tiny_fastqc.html  SRR6805881.tiny.fastq           SRR6805884.tiny.fastq
+# Build reference genome for lambda phage
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ bowtie2-build Ppar_tinygenome.fna Ppar_tinygenome
+Settings:
+  Output files: "Ppar_tinygenome.*.bt2"
+# Deleted extra output
+Total time for backward call to driver() for mirror index: 00:00:40
+Renaming Ppar_tinygenome.3.bt2.tmp to Ppar_tinygenome.3.bt2
+Renaming Ppar_tinygenome.4.bt2.tmp to Ppar_tinygenome.4.bt2
+Renaming Ppar_tinygenome.1.bt2.tmp to Ppar_tinygenome.1.bt2
+Renaming Ppar_tinygenome.2.bt2.tmp to Ppar_tinygenome.2.bt2
+Renaming Ppar_tinygenome.rev.1.bt2.tmp to Ppar_tinygenome.rev.1.bt2
+Renaming Ppar_tinygenome.rev.2.bt2.tmp to Ppar_tinygenome.rev.2.bt2
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ ls
+for_bash_1.sh          Ppar_tinygenome.rev.1.bt2       SRR6805880.trimmed_fastqc.zip  SRR6805884.trimmed.fastq
+for_bash_2.sh          Ppar_tinygenome.rev.2.bt2       SRR6805881.tiny.fastq          SRR6805885.tiny.fastq
+for_bash_3.sh          SRR6805880.tiny.fastq           SRR6805881.trimmed.fastq       SRR6805885.trimmed.fastq
+Ppar_tinygenome.1.bt2  SRR6805880.tiny_fastqc.html     SRR6805882.tiny.fastq          trim_adapters.sh
+Ppar_tinygenome.2.bt2  SRR6805880.tiny_fastqc.zip      SRR6805882.trimmed.fastq       Zipped_backups
+Ppar_tinygenome.3.bt2  SRR6805880.trim.fastq           SRR6805883.tiny.fastq
+Ppar_tinygenome.4.bt2  SRR6805880.trimmed.fastq        SRR6805883.trimmed.fastq
+Ppar_tinygenome.fna    SRR6805880.trimmed_fastqc.html  SRR6805884.tiny.fastq
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ mkdir bt2_files
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ mv *.bt2 bt2_files/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ ls
+bt2_files              SRR6805880.tiny_fastqc.html     SRR6805881.tiny.fastq     SRR6805884.tiny.fastq
+for_bash_1.sh          SRR6805880.tiny_fastqc.zip      SRR6805881.trimmed.fastq  SRR6805884.trimmed.fastq
+for_bash_2.sh          SRR6805880.trim.fastq           SRR6805882.tiny.fastq     SRR6805885.tiny.fastq
+for_bash_3.sh          SRR6805880.trimmed.fastq        SRR6805882.trimmed.fastq  SRR6805885.trimmed.fastq
+Ppar_tinygenome.fna    SRR6805880.trimmed_fastqc.html  SRR6805883.tiny.fastq     trim_adapters.sh
+SRR6805880.tiny.fastq  SRR6805880.trimmed_fastqc.zip   SRR6805883.trimmed.fastq  Zipped_backups
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ cd bt2_files/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ mkdir index
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ mv bt2_files/* index/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ ls index/
+Ppar_tinygenome.1.bt2  Ppar_tinygenome.3.bt2  Ppar_tinygenome.rev.1.bt2
+Ppar_tinygenome.2.bt2  Ppar_tinygenome.4.bt2  Ppar_tinygenome.rev.2.bt2
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ rmdir bt2_files/
+# Map reads to genome
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ for filename in *.trimmed.fastq
+> do
+>   base=$(basename $filename .trimmed.fastq)
+> echo ${base}
+>   bowtie2 -x index/Ppar_tinygenome -U ${base}.trimmed.fastq -S ${base}.sam
+> done
+SRR6805880
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    782 (78.20%) aligned 0 times
+    111 (11.10%) aligned exactly 1 time
+    107 (10.70%) aligned >1 times
+21.80% overall alignment rate
+SRR6805881
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    782 (78.20%) aligned 0 times
+    109 (10.90%) aligned exactly 1 time
+    109 (10.90%) aligned >1 times
+21.80% overall alignment rate
+SRR6805882
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    772 (77.20%) aligned 0 times
+    116 (11.60%) aligned exactly 1 time
+    112 (11.20%) aligned >1 times
+22.80% overall alignment rate
+SRR6805883
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    792 (79.20%) aligned 0 times
+    103 (10.30%) aligned exactly 1 time
+    105 (10.50%) aligned >1 times
+20.80% overall alignment rate
+SRR6805884
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    789 (78.90%) aligned 0 times
+    110 (11.00%) aligned exactly 1 time
+    101 (10.10%) aligned >1 times
+21.10% overall alignment rate
+SRR6805885
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    766 (76.60%) aligned 0 times
+    115 (11.50%) aligned exactly 1 time
+    119 (11.90%) aligned >1 times
+23.40% overall alignment rate
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ ls
+for_bash_1.sh                SRR6805880.tiny_fastqc.zip      SRR6805882.sam            SRR6805884.trimmed.fastq
+for_bash_2.sh                SRR6805880.trim.fastq           SRR6805882.tiny.fastq     SRR6805885.sam
+for_bash_3.sh                SRR6805880.trimmed.fastq        SRR6805882.trimmed.fastq  SRR6805885.tiny.fastq
+index                        SRR6805880.trimmed_fastqc.html  SRR6805883.sam            SRR6805885.trimmed.fastq
+Ppar_tinygenome.fna          SRR6805880.trimmed_fastqc.zip   SRR6805883.tiny.fastq     trim_adapters.sh
+SRR6805880.sam               SRR6805881.sam                  SRR6805883.trimmed.fastq  Zipped_backups
+SRR6805880.tiny.fastq        SRR6805881.tiny.fastq           SRR6805884.sam
+SRR6805880.tiny_fastqc.html  SRR6805881.trimmed.fastq        SRR6805884.tiny.fastq
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ less SRR6805880.sam 
+# Convert sam to bam
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ for filename in *.sam
+> do
+> base=$(basename $filename .sam)
+>   echo ${base}
+>   samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam
+> done
+SRR6805880
+SRR6805881
+SRR6805882
+SRR6805883
+SRR6805884
+SRR6805885
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ # Genotype likelihoods
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0110 Sea_cuke]$ conda deactivate 
+(/courses/BIOL2406.202710/shared/emboss_env) [galgano.n@d0110 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/angsd_env/
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ 
+ls *.bam > bam.filelist
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ cat bam.filelist
+SRR6805880.bam
+SRR6805881.bam
+SRR6805882.bam
+SRR6805883.bam
+SRR6805884.bam
+SRR6805885.bam
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Sea_cuke]$ 
+angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1
+	-> angsd version: 0.940-dirty (htslib: 1.24) build(Dec 15 2024 09:11:59)
+	-> angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1 
+	-> Inputtype is BAM/CRAM
+# Deleted extra output
+	-> Total number of sites analyzed: 71450
+	-> Number of sites retained after filtering: 9 
+	[ALL done] cpu-time used =  0.89 sec
+	[ALL done] walltime used =  1.00 sec
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ ls
+bam.filelist                  SRR6805880.tiny.fastq           SRR6805881.trimmed.fastq  SRR6805884.sam
+# Deleted extra output
+SRR6805880.sam                SRR6805881.tiny.fastq           SRR6805884.bam
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ gunzip genotype_likelihoods.mafs.gz 
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ ls
+bam.filelist               SRR6805880.tiny.fastq           SRR6805881.trimmed.fastq  SRR6805884.sam
+for_bash_1.sh              SRR6805880.tiny_fastqc.html     SRR6805882.bam            SRR6805884.tiny.fastq
+for_bash_2.sh              SRR6805880.tiny_fastqc.zip      SRR6805882.sam            SRR6805884.trimmed.fastq
+for_bash_3.sh              SRR6805880.trim.fastq           SRR6805882.tiny.fastq     SRR6805885.bam
+genotype_likelihoods.arg   SRR6805880.trimmed.fastq        SRR6805882.trimmed.fastq  SRR6805885.sam
+genotype_likelihoods.mafs  SRR6805880.trimmed_fastqc.html  SRR6805883.bam            SRR6805885.tiny.fastq
+index                      SRR6805880.trimmed_fastqc.zip   SRR6805883.sam            SRR6805885.trimmed.fastq
+Ppar_tinygenome.fna        SRR6805881.bam                  SRR6805883.tiny.fastq     trim_adapters.sh
+SRR6805880.bam             SRR6805881.sam                  SRR6805883.trimmed.fastq  Zipped_backups
+SRR6805880.sam             SRR6805881.tiny.fastq           SRR6805884.bam
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ less genotype_likelihoods.mafs 
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0110 Sea_cuke]$ # In-class exercises:
+[galgano.n@d0113 Sea_cuke]$ # Map untrimmed reads to genome
+[galgano.n@d0113 Sea_cuke]$ module load anaconda3/2024.06 
+[galgano.n@d0113 Sea_cuke]$ module load bowtie2/2.5.4 
+[galgano.n@d0113 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/cutadapt_env/
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0113 Sea_cuke]$ for filename in *.tiny.fastq
+> do
+> base=$(basename $filename .tiny.fastq)
+> echo ${base}
+> bowtie2 -x index/Ppar_tinygenome -U ${base}.tiny.fastq -S ${base}.sam
+> done
+SRR6805880
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    780 (78.00%) aligned 0 times
+    111 (11.10%) aligned exactly 1 time
+    109 (10.90%) aligned >1 times
+22.00% overall alignment rate
+SRR6805881
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    787 (78.70%) aligned 0 times
+    101 (10.10%) aligned exactly 1 time
+    112 (11.20%) aligned >1 times
+21.30% overall alignment rate
+SRR6805882
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    777 (77.70%) aligned 0 times
+    105 (10.50%) aligned exactly 1 time
+    118 (11.80%) aligned >1 times
+22.30% overall alignment rate
+SRR6805883
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    787 (78.70%) aligned 0 times
+    104 (10.40%) aligned exactly 1 time
+    109 (10.90%) aligned >1 times
+21.30% overall alignment rate
+SRR6805884
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    788 (78.80%) aligned 0 times
+    110 (11.00%) aligned exactly 1 time
+    102 (10.20%) aligned >1 times
+21.20% overall alignment rate
+SRR6805885
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    769 (76.90%) aligned 0 times
+    120 (12.00%) aligned exactly 1 time
+    111 (11.10%) aligned >1 times
+23.10% overall alignment rate
+# The alignments are very similar to the original but slightly worse overall
+
+# Trim to 70 bp and align:
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0113 Sea_cuke]$ for filename in *.tiny.fastq
+> do
+> base=$(basename $filename .tiny.fastq)
+>  echo ${base}
+> cutadapt -l 70 ${base}.tiny.fastq -o ${base}.tiny_70bp.fastq 
+> done
+SRR6805880
+This is cutadapt 5.2 with Python 3.13.16
+# Deleted extra output
+
+Total basepairs processed:        80,000 bp
+Total written (filtered):         70,000 bp (87.5%)
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0113 Sea_cuke]$ for filename in *tiny_70bp.fastq; do base=$(basename $filename .tiny_70bp.fastq); echo ${base}; bowtie2 -x index/Ppar_tinygenome -U ${base}.tiny_70bp.fastq -S ${base}.sam; done
+SRR6805880
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    785 (78.50%) aligned 0 times
+    109 (10.90%) aligned exactly 1 time
+    106 (10.60%) aligned >1 times
+21.50% overall alignment rate
+SRR6805881
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    791 (79.10%) aligned 0 times
+    104 (10.40%) aligned exactly 1 time
+    105 (10.50%) aligned >1 times
+20.90% overall alignment rate
+SRR6805882
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    784 (78.40%) aligned 0 times
+    100 (10.00%) aligned exactly 1 time
+    116 (11.60%) aligned >1 times
+21.60% overall alignment rate
+SRR6805883
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    793 (79.30%) aligned 0 times
+    105 (10.50%) aligned exactly 1 time
+    102 (10.20%) aligned >1 times
+20.70% overall alignment rate
+SRR6805884
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    794 (79.40%) aligned 0 times
+    110 (11.00%) aligned exactly 1 time
+    96 (9.60%) aligned >1 times
+20.60% overall alignment rate
+SRR6805885
+1000 reads; of these:
+  1000 (100.00%) were unpaired; of these:
+    770 (77.00%) aligned 0 times
+    116 (11.60%) aligned exactly 1 time
+    114 (11.40%) aligned >1 times
+23.00% overall alignment rate
+# The alignment again is very similar to the original but still slightly worse
+
+# Change the SNP p-value
+(/courses/BIOL2406.202710/shared/cutadapt_env) [galgano.n@d0113 Sea_cuke]$ conda deactivate
+[galgano.n@d0113 Sea_cuke]$ source activate /courses/BIOL2406.202710/shared/angsd_env/
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Sea_cuke]$ # Change the likelihood command in angsd
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Sea_cuke]$ 
+angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-6 -doMajorMinor 1
+# Deleted extra output
+	-> Total number of sites analyzed: 71450
+	-> Number of sites retained after filtering: 0 
+	[ALL done] cpu-time used =  0.90 sec
+	[ALL done] walltime used =  1.00 sec
+# You recover less if you raise the value
+
+(/courses/BIOL2406.202710/shared/angsd_env) [galgano.n@d0113 Sea_cuke]$ angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-1 -doMajorMinor 1
+	-> angsd version: 0.940-dirty (htslib: 1.24) build(Dec 15 2024 09:11:59)
+# Deleted extra output
+	-> Total number of sites analyzed: 71450
+	-> Number of sites retained after filtering: 54 
+	[ALL done] cpu-time used =  0.90 sec
+	[ALL done] walltime used =  1.00 sec
+# You get more SNPs if you decrease the SNP p-value

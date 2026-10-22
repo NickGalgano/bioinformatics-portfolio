@@ -1,0 +1,25 @@
+B burgdorferei:
+- Size:	1.5 Mb
+- Structure: 22 Linear Chromosomes
+- Estimated protein coding genes: 1,456 (NCBI RefSeq)
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000008685.2/
+C elegans:
+- Size: 100.3 Mb
+- Structure: 6 linear chromosomes
+- Estimated protein coding genes: 19,983 (NCBI RefSeq)
+- Where	to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000002985.6/
+Parastichopus parvimensis:
+- Size: 805 Mb (NCBI)
+- Structure: 23 linear chromosomes
+- Estimated protein coding genes: 36,422 (NCBI)
+- Where	to access the genome sequence:  
+Homo sapiens:
+- Size: 3.1 Gb
+- Structure: 46 linear chromsomes
+- Estimated protein coding genes: 19,467 (NCBI)
+- Where	to access the genome sequence: https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/
+Lambda phage:
+- Size: 48.5 kb
+- Structure: 1 linear chromosome that can fold into a circular molecule
+- Estimated protein coding genes: 73 (NCBI RefSeq)
+- Where to access the genome sequence: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000840245.1/

@@ -1,0 +1,111 @@
+[galgano.n@c0609 02_Explore]$ cd Lambda/
+# Download all relevant lambda phage data from bowtie2 github
+[galgano.n@c0609 Lambda]$ wget https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reads/reads_1.fq
+--2026-10-08 12:10:27--  https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reads/reads_1.fq
+Connecting to 10.99.0.130:3128... connected.
+# Deleted extra output
+2026-10-08 12:10:28 (33.4 MB/s) - ‘reads_1.fq’ saved [2285692/2285692]
+[galgano.n@c0609 Lambda]$ wget https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reference/lambda_virus.fa
+--2026-10-08 12:10:40--  https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reference/lambda_virus.fa
+Connecting to 10.99.0.130:3128... connected.
+# Deleted extra output
+2026-10-08 12:10:41 (5.22 MB/s) - ‘lambda_virus.fa’ saved [49270/49270]
+[galgano.n@c0609 Lambda]$ ls
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna  lambda_virus.fa  reads_1.fq
+[galgano.n@c0609 Lambda]$ module load bowtie2/2.5.4 
+[galgano.n@c0609 Lambda]$ wget https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reads/reads_2.fq
+--2026-10-08 12:11:49--  https://github.com/BenLangmead/bowtie2/raw/refs/heads/master/example/reads/reads_2.fq
+Connecting to 10.99.0.130:3128... connected.
+# Deleted extra output
+2026-10-08 12:11:51 (32.4 MB/s) - ‘reads_2.fq’ saved [2288866/2288866]
+[galgano.n@c0609 Lambda]$ ls
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna  lambda_virus.fa  reads_1.fq  reads_2.fq
+[galgano.n@c0609 Lambda]$ head lambda_virus.fa 
+>gi|9626243|ref|NC_001416.1| Enterobacteria phage lambda, complete genome
+GGGCGGCGACCTCGCGGGTTTTCGCTATTTATGAAAATTTTCCGGTTTAAGGCGTTTCCGTTCTTCTTCG
+TCATAACTTAATGTTTTTATTTAAAATACCCTCTGAAAAGAAAGGAAACGACAGGTGCTGAAAGCGAGGC
+# Deleted extra output
+AATGCCAGAGACTCCGCTGAAGTGGTGGAAACCGCATTCTGTACTTTCGTGCTGTCGCGGATCGCAGGTG
+AAATTGCCAGTATTCTCGACGGGCTCCCCCTGTCGGTGCAGCGGCGTTTTCCGGAACTGGAAAACCGACA
+[galgano.n@c0609 Lambda]$ head reads_1.fq 
+@r1
+TGAATGCGAACTCCGGGACGCTCAGTAATGTGACGATAGCTGAAAACTGTACGATAAACNGTACGCTGAGGGCAGAAAAAATCGTCGGGGACATTNTAAAGGCGGCGAGCGCGGCTTTTCCG
++
++"@6<:27(F&5)9)"B:%B+A-%5A?2$HCB0B+0=D<7E/<.03#!.F77@6B==?C"7>;))%;,3-$.A06+<-1/@@?,26">=?*@'0;$:;??G+:#+(A?9+10!8!?()?7C>
+# Deleted extra output
+CTCCTCTTGAGTCTGCTGCTCAGCCTTCTTTCGGGCGGCTTCAAGCGCAAGACGGGCCTTTTCACGATCATCCCAGTAACGCGCCC
+[galgano.n@c0609 Lambda]$ head reads_2.fq 
+@r1
+NAACGTCAGCGGAAGCACCACTATCTGGCGATCAAAAGGATGGTCATCGGTCACGGTGACAGTACGGGTACCTGACGGCCAGTCCACACTGCTTTCACGCTGGCGCGGNAAAGCCGCGCTCGCCGCCTNTACNATGTCCCCGACGATTTTTTCCGCCCTCAGCGTACCGTTTATCGTACAGTTTTCAGCTATCGTCAC
++
+&?$F&9AC8H49@5<*>=E;2/G+;9?&8D.;E!2:0B/)++#F-><E,-/&F:&/#B=*'C?@$0!+#1?.ABC?:-?9GA?,11.2>3$&@-'6;!6@D?&#*E:C#9-4&8?"))H>H9--# Deleted extra output
+CGCGGGCGCGTTACTGGGATGATNGNGAAAAGGCCCGTCTTGCGCTTGAAGCCGCCCGAAAGAAGNC
+# Build index of reference genome
+[galgano.n@c0609 Lambda]$ bowtie2-build lambda_virus.fa lambda_virus 
+Settings:
+  Output files: "lambda_virus.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  # Deleted extra output
+Total time for backward call to driver() for mirror index: 00:00:02
+Renaming lambda_virus.3.bt2.tmp to lambda_virus.3.bt2
+Renaming lambda_virus.4.bt2.tmp to lambda_virus.4.bt2
+Renaming lambda_virus.1.bt2.tmp to lambda_virus.1.bt2
+Renaming lambda_virus.2.bt2.tmp to lambda_virus.2.bt2
+Renaming lambda_virus.rev.1.bt2.tmp to lambda_virus.rev.1.bt2
+Renaming lambda_virus.rev.2.bt2.tmp to lambda_virus.rev.2.bt2
+[galgano.n@c0609 Lambda]$ ls
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna  lambda_virus.3.bt2  lambda_virus.rev.1.bt2  reads_2.fq
+lambda_virus.1.bt2                                   lambda_virus.4.bt2  lambda_virus.rev.2.bt2
+lambda_virus.2.bt2                                   lambda_virus.fa     reads_1.fq
+# Align Reads
+[galgano.n@c0609 Lambda]$ bowtie2 -x lambda_virus -U reads_1.fq -S eg1.sam
+10000 reads; of these:
+  10000 (100.00%) were unpaired; of these:
+    596 (5.96%) aligned 0 times
+    9404 (94.04%) aligned exactly 1 time
+    0 (0.00%) aligned >1 times
+94.04% overall alignment rate
+[galgano.n@c0609 Lambda]$ head eg1.sam 
+@HD	VN:1.5	SO:unsorted	GO:query
+@SQ	SN:gi|9626243|ref|NC_001416.1|	LN:48502
+@PG	ID:bowtie2	PN:bowtie2	VN:2.5.4	CL:"/shared/EL9/explorer/bowtie2/2.5.4/src/bowtie2-2.5.4-linux-x86_64/# Deleted extra output
+[galgano.n@c0609 Lambda]$ ls
+eg1.sam                                              lambda_virus.2.bt2  lambda_virus.fa         reads_1.fq
+GCF_000840245.1_ViralProj14204_cds_from_genomic.fna  lambda_virus.3.bt2  lambda_virus.rev.1.bt2  reads_2.fq
+lambda_virus.1.bt2                                   lambda_virus.4.bt2  lambda_virus.rev.2.bt2
+# Paired end read example
+[galgano.n@c0609 Lambda]$ bowtie2 -x lambda_virus -1 reads_1.fq -2 reads_2.fq -S eg2.sam
+10000 reads; of these:
+  10000 (100.00%) were paired; of these:
+    834 (8.34%) aligned concordantly 0 times
+    9166 (91.66%) aligned concordantly exactly 1 time
+    0 (0.00%) aligned concordantly >1 times
+    ----
+    834 pairs aligned concordantly 0 times; of these:
+      42 (5.04%) aligned discordantly 1 time
+    ----
+    792 pairs aligned 0 times concordantly or discordantly; of these:
+      1584 mates make up the pairs; of these:
+        1005 (63.45%) aligned 0 times
+        579 (36.55%) aligned exactly 1 time
+        0 (0.00%) aligned >1 times
+94.97% overall alignment rate
+# Using SAM and BCF tools
+[galgano.n@c0609 Lambda]$ module load samtools/1.21 
+[galgano.n@c0609 Lambda]$ module load bcftools/1.21 
+[galgano.n@c0609 Lambda]$ samtools view -bS eg2.sam > eg2.bam # Convert sam to bam file
+[galgano.n@c0609 Lambda]$ samtools sort eg2.bam -o eg2.sorted.bam # Will convert Bam to sorted Bam file
+[galgano.n@c0609 Lambda]$ bcftools mpileup -f lambda_virus.fa eg2.sorted.bam | bcftools view -Ov - > eg2.raw.bcf # Will generate variant call in VCF format
+[mpileup] 1 samples in 1 input files
+[mpileup] maximum number of reads per input file set to -d 250
+[galgano.n@c0609 Lambda]$ bcftools view eg2.raw.bcf > variants.txt # Will make a txt file to view the variants
+[galgano.n@c0609 Lambda]$ less variants.txt 
+[galgano.n@c0609 Lambda]$ ls
+eg1.sam         GCF_000840245.1_ViralProj14204_cds_from_genomic.fna  lambda_virus.fa         reads_2.fq
+eg2.bam         lambda_virus.1.bt2                                   lambda_virus.fa.fai     variants.txt
+eg2.raw.bcf     lambda_virus.2.bt2                                   lambda_virus.rev.1.bt2
+eg2.sam         lambda_virus.3.bt2                                   lambda_virus.rev.2.bt2
+eg2.sorted.bam  lambda_virus.4.bt2                                   reads_1.fq
+[galgano.n@c0609 Lambda]$ 

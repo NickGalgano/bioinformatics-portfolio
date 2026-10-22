@@ -1,0 +1,16 @@
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --runMode genomeGenerate --genomeFastaFiles Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.115.gtf --runThreadN 16
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 12:34:15 ..... started STAR run
+Oct 19 12:34:16 ... starting to generate Genome files
+Oct 19 12:35:07 ..... processing annotations GTF
+Oct 19 12:36:03 ... starting to sort Suffix Array. This may take a long time...
+Oct 19 12:36:20 ... sorting Suffix Array chunks and saving them to disk...
+Oct 19 13:07:37 ... loading chunks from disk, packing SA...
+Oct 19 13:09:46 ... finished generating suffix array
+Oct 19 13:09:46 ... generating Suffix Array index
+Oct 19 13:13:25 ... completed Suffix Array index
+Oct 19 13:13:25 ..... inserting junctions into the genome indices
+Oct 19 13:18:31 ... writing Genome to disk ...
+Oct 19 13:18:36 ... writing Suffix Array to disk ...
+Oct 19 13:19:03 ... writing SAindex to disk
+Oct 19 13:19:07 ..... finished successfully

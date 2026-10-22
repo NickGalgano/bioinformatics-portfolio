@@ -1,0 +1,64 @@
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039508_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039508_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039508_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:23:31 ..... started STAR run
+Oct 19 13:23:31 ..... loading genome
+Oct 19 13:24:10 ..... started mapping
+Oct 19 13:25:32 ..... finished mapping
+Oct 19 13:25:34 ..... started sorting BAM
+Oct 19 13:26:02 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039509_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039509_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039509_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:26:04 ..... started STAR run
+Oct 19 13:26:04 ..... loading genome
+Oct 19 13:26:41 ..... started mapping
+Oct 19 13:36:44 ..... finished mapping
+Oct 19 13:36:46 ..... started sorting BAM
+Oct 19 13:37:11 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039512_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039512_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039512_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:37:13 ..... started STAR run
+Oct 19 13:37:13 ..... loading genome
+Oct 19 13:37:27 ..... started mapping
+Oct 19 13:39:01 ..... finished mapping
+Oct 19 13:39:02 ..... started sorting BAM
+Oct 19 13:39:38 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039513_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039513_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039513_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:39:40 ..... started STAR run
+Oct 19 13:39:40 ..... loading genome
+Oct 19 13:39:53 ..... started mapping
+Oct 19 13:40:51 ..... finished mapping
+Oct 19 13:40:52 ..... started sorting BAM
+Oct 19 13:41:14 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039516_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039516_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039516_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:41:16 ..... started STAR run
+Oct 19 13:41:16 ..... loading genome
+Oct 19 13:41:28 ..... started mapping
+Oct 19 13:43:03 ..... finished mapping
+Oct 19 13:43:04 ..... started sorting BAM
+Oct 19 13:43:37 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039517_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039517_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039517_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:43:39 ..... started STAR run
+Oct 19 13:43:39 ..... loading genome
+Oct 19 13:43:52 ..... started mapping
+Oct 19 13:45:52 ..... finished mapping
+Oct 19 13:45:53 ..... started sorting BAM
+Oct 19 13:46:35 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039520_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039520_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039520_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:46:37 ..... started STAR run
+Oct 19 13:46:37 ..... loading genome
+Oct 19 13:46:49 ..... started mapping
+Oct 19 13:48:00 ..... finished mapping
+Oct 19 13:48:01 ..... started sorting BAM
+Oct 19 13:48:32 ..... finished successfully
+	/courses/BIOL2406.202710/shared/star_env/bin/STAR-avx2 --genomeDir GenomeDir --readFilesIn /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039521_1.fastq /courses/BIOL2406.202710/students/galgano.n/bioinformatics-portfolio/02_Explore/Human//SRR1039521_2.fastq --runThreadN 16 --outFileNamePrefix aligned_output/SRR1039521_ --outSAMtype BAM SortedByCoordinate --limitBAMsortRAM 40000000000
+	STAR version: 2.7.11b   compiled: 2025-11-14T12:06:42+0000 :/opt/conda/conda-bld/star_1763121846936/work/source
+Oct 19 13:48:34 ..... started STAR run
+Oct 19 13:48:34 ..... loading genome
+Oct 19 13:48:45 ..... started mapping
+Oct 19 13:50:04 ..... finished mapping
+Oct 19 13:50:05 ..... started sorting BAM
+Oct 19 13:50:38 ..... finished successfully
