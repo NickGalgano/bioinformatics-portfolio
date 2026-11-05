@@ -1,0 +1,357 @@
+---
+title: "Tutorial_3"
+author: "Nicolas Galgano"
+date: "2026-11-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(ggplot2)
+data(msleep)
+
+plot(msleep$sleep_total,msleep$bodywt)
+
+plot(msleep$sleep_total~msleep$bodywt)
+
+```
+
+```{r}
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L")
+
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+
+```
+```{r}
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col="blue", bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)")
+
+abline(lm(msleep$sleep_total~msleep$bodywt))
+```
+
+```{r}
+
+msleep$colors=NA
+
+msleep$colors[msleep$sleep_total >= 17] <-"red"
+msleep$colors[msleep$sleep_total < 17] <-"black"
+
+
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col=msleep$colors, bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+
+```
+
+```{r}
+hist(msleep$sleep_total, col=rainbow(10))
+
+plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
+
+plot(msleep$sleep_total~msleep$bodywt, pch = 16, col=msleep$colors, bty="L", xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)") 
+
+boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
+
+plot(msleep$sleep_total~as.factor(msleep$vore),col=rainbow(4), xlab="Bodyweight (grams)", ylab= "Total Sleep (hours)")
+```
+# Exercise 1: Practicing Base R Plotting
+# Name: Nicolas Galgano
+# Date: 11/7/2026
+
+```{r}
+# Load required libraries
+library(ggplot2)
+
+# Load the msleep dataset
+data(msleep)
+```
+
+
+# ============================================================================
+# Task 1: Create and customize a scatterplot
+# ============================================================================
+# Create a scatterplot of sleep_total vs bodywt (body weight).
+# Customize your plot with:
+# - A point character (pch) of your choice
+# - Blue colored points
+# - Axis labels: "Body Weight (kg)" for x-axis and "Total Sleep (hours)" for y-axis
+# - A border style of your choice (bty)
+
+# Your code here:
+```{r}
+plot(msleep$sleep_total~msleep$bodywt, pch = 14, col="Blue", bty="U", xlab="Body Weight (kg)", ylab= "Total Sleep (hours)") 
+```
+
+
+
+# ============================================================================
+# Task 2: Make a histogram
+# ============================================================================
+# Create a histogram of the brainwt (brain weight) variable.
+# Customize your histogram with:
+# - A color of your choice (col)
+# - An appropriate x-axis label
+# - A descriptive title using the main argument
+
+# Your code here:
+```{r}
+hist(msleep$brainwt, col="purple", xlab = "Brain Weight (kg)", main = "Distribution of Brain Weight Across Species")
+
+```
+
+
+
+# ============================================================================
+# Task 3: Create a boxplot comparing groups
+# ============================================================================
+# Create a boxplot showing sleep_total for each vore type (diet).
+# Customize your boxplot with:
+# - Different colors for each box (hint: use rainbow() or choose specific colors)
+# - Appropriate axis labels
+# - Convert vore to a factor using as.factor()
+
+# Your code here:
+
+```{r}
+boxplot(msleep$sleep_total~as.factor(msleep$vore), col=rainbow(4), xlab = "Diet", ylab = "Sleep Total (Hours)", main = "Total Sleep by Diet")
+```
+
+
+# ============================================================================
+# Bonus Challenge (Optional)
+# ============================================================================
+# Create a scatterplot of any two continuous variables from msleep.
+# Add a line of best fit using abline() and lm().
+# Color points based on a condition you define (like we did with sleep_total >= 17
+# in the tutorial), and add a legend to explain the colors.
+
+# Your code here:
+
+```{r}
+msleep$colors[msleep$bodywt >= 10] <-"red"
+msleep$colors[msleep$bodywt < 10] <-"green"
+plot(msleep$bodywt, msleep$sleep_total, col = msleep$colors, xlab = "Body Weight (kg)", ylab = "Total Sleep (Hours)")
+
+# Line of best fit
+abline(lm(msleep$sleep_total ~ msleep$bodywt))
+
+# Legend
+legend("topright",
+       legend = c("Body weight >= 10 kg", "Body weight < 10 kg"),
+       col = c("red", "green"),
+       pch = 19)
+```
+
+
+# Plotting with ggplot tutorial
+```{r}
+data(state)
+states = as.data.frame(state.x77) # convert data to a familiar format - data frame
+str(states) # let's take a look at the dataframe
+
+ggplot(data=states) 
+
+ggplot(data=states, aes(x=Population, y=Income))+geom_point() 
+
+ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm") 
+
+```
+
+
+
+
+
+```{r}
+ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm")+theme_minimal() 
+ggplot(data=states, aes(x=Income, y=Illiteracy, color=Population)) +geom_point()+geom_smooth(method="lm", color="red")+theme_classic() 
+
+```
+
+
+```{r}
+ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore))) +geom_point()
+
+```
+
+
+
+```{r}
+ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
+  geom_point()+
+  labs(y= "Total Sleep (hours)", x= "REM sleep (hours)")+
+  theme_minimal()+
+  scale_color_manual(name="Diet", 
+                        labels = c("Carnivore", 
+                                   "Herbivore", 
+                                   "Insectivore", 
+                                   "Omnivore", 
+                                    "NA"), 
+                        values = c("carni"="blue", 
+                                   "herbi"="red", 
+                                   "insecti"="green", 
+                                   "omni"="brown", 
+                                   "NA"="orange"))
+```
+
+```{r}
+g<-ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
+  geom_point()+
+  labs(y= "Total Sleep (hours)", x= "REM sleep (hours)")+
+  theme_minimal()+
+  scale_color_manual(name="Diet", 
+                        labels = c("Carnivore", 
+                                   "Herbivore", 
+                                   "Insectivore", 
+                                   "Omnivore", 
+                                    "NA"), 
+                        values = c("carni"="blue", 
+                                   "herbi"="red", 
+                                   "insecti"="green", 
+                                   "omni"="brown", 
+                                   "NA"="orange"))
+g
+```
+
+```{r}
+ggplot(iris, aes(y=Sepal.Length, x=Sepal.Width, group=Species, color=Species))+
+  geom_point()+
+  facet_wrap(~Species)+
+  geom_smooth(method="lm")
+```
+
+```{r}
+ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
+  stat_summary(fun=mean, geom="point", size=1)+
+  stat_summary(fun=mean, geom="line", size=1)+
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+               aes(width=0.1), size=0.5)
+```
+# Exercise 2: Practicing ggplot2
+
+```{r}
+# Load required libraries
+library(ggplot2)
+
+# Load the msleep dataset
+data(msleep)
+```
+
+
+
+# ============================================================================
+# Question 1: Basic scatterplot with the msleep dataset
+# ============================================================================
+# Create a scatterplot showing the relationship between bodywt (body weight) 
+# and brainwt (brain weight). Add appropriate axis labels and change the 
+# theme to theme_classic().
+
+# Your code here:
+```{r}
+ggplot(data=msleep, aes(x = bodywt, y = brainwt)) +
+    geom_point() +
+    labs(x = "Body Weight (kg)",
+       y = "Brain Weight (kg)",
+       title = "Body Weight vs. Brain Weight")+ 
+  theme_classic()
+```
+
+
+
+# ============================================================================
+# Question 2: Adding color by group
+# ============================================================================
+# Using the same variables from question 1 (bodywt and brainwt), color the 
+# points by vore (diet type). Make sure to convert vore to a factor.
+# Add a legend title that says "Diet Type".
+
+# Your code here:
+```{r}
+ggplot(data=msleep, aes(x = bodywt, y = brainwt, color=as.factor(vore))) +
+    geom_point() +
+    labs(x = "Body Weight (kg)",
+       y = "Brain Weight (kg)",
+       title = "Body Weight vs. Brain Weight",
+       color = "Diet Type")+ 
+  theme_classic()
+```
+
+
+# ============================================================================
+# Question 3: Scatterplot with a line of best fit
+# ============================================================================
+# Plot sleep_total against sleep_cycle. Add a linear regression line using 
+# geom_smooth(). Color the line red and use theme_minimal().
+
+# Your code here:
+```{r}
+ggplot(data = msleep, aes(x= sleep_total, y = sleep_cycle, color = "red")) +
+  geom_point() +
+  geom_smooth() +
+    labs(x = "Sleep Cycle Length (hours)",
+       y = "Total Sleep (hours per day)",
+       title = "Total Sleep vs. Sleep Cycle Length")+
+  theme_minimal()
+```
+
+
+# ============================================================================
+# Question 4: Faceted plots by group
+# ============================================================================
+# Create a scatterplot of sleep_total vs sleep_rem. Use facet_wrap() to 
+# create separate panels for each vore type. Add appropriate axis labels.
+
+# Your code here:
+```{r}
+ggplot(data= msleep, aes(x = sleep_total, y = sleep_rem)) +
+  geom_point()+
+  facet_wrap(~vore)+
+  labs(x = "Sleep Total (hours)",
+      y = "Rem Sleep (hours)",
+      title = "Total Sleep vs. Rem Sleep by Diet")
+```
+
+
+# ============================================================================
+# Question 5: Exploring a new dataset
+# ============================================================================
+# Load the built-in iris dataset. Create a scatterplot showing Petal.Length 
+# vs Petal.Width. Color points by Species. Add a title to your plot using 
+# ggtitle("Iris Petal Dimensions"). Choose your favorite theme.
+
+# Load the iris dataset
+data(iris)
+
+# Your code here:
+```{r}
+ggplot(data = iris, aes(x = Petal.Length, y = Petal.Width, col = Species)) +
+  geom_point()+
+  ggtitle("Iris Petal Dimensions") +
+  theme_dark()
+
+```
+
+
+# ============================================================================
+# Bonus Challenge (Optional)
+# ============================================================================
+# Pick any two continuous variables from the msleep dataset and create a 
+# publication-quality plot with:
+# - Appropriate axis labels
+# - A theme of your choice
+# - Points colored by a grouping variable
+# - A descriptive title
+
+# Your code here:
+
+```{r}
+ggplot(data = msleep, aes(x = awake, y= bodywt, col = vore)) +
+  geom_point() +
+  geom_smooth()+
+    labs(x = "Hours Awake",
+      y = "Body Weight (kg)",
+      title = "Hours awake vs. Body Weight") +
+  theme_classic()
+```
+
+
